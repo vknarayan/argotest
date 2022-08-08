@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: testapp-isd
+  name: agrotest
 spec:
   replicas: 3
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: testapp-isd
+      app: agrotest
   template:
     metadata:   
       labels:
-        app: testapp-isd
+        app: agrotest
     spec:
       containers:
         - name: rollouts-demo-exp
