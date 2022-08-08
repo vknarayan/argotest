@@ -9,9 +9,9 @@ spec:
         isd:
           gate_url: https://ds312.isd-dev.opsmx.net/
           application: testapp
-          baseline_start_time: "2022-07-29T13:15:00Z"
-          canary_start_time: "2022-07-29T13:15:00Z"
-          lifetimeHours: "0.5"
+          baseline_start_time: "2022-08-02T13:15:00Z"
+          canary_start_time: "2022-08-02T13:15:00Z"
+          end_time: "2022-08-02T13:45:10Z"
           threshold:
             pass: 80
             marginal: 60
