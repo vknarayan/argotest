@@ -15,7 +15,7 @@ spec:
           app: rollouts-demo-exp-2
       spec:
         containers:
-        - name: rollouts-demo-exp
+        - name: baseline
           image: docker.io/opsmxdev/issuegen:v3.0.6
           imagePullPolicy: Always
   - name: orange
@@ -28,7 +28,7 @@ spec:
           app: rollouts-demo-exp-2
       spec:
         containers:
-        - name: rollouts-demo-exp
+        - name: canary
           image: docker.io/opsmxdev/issuegen:v3.0.8
           imagePullPolicy: Always
   analyses:
