@@ -4,17 +4,33 @@ metadata:
   name: expend
 spec:
   duration: 10m
-  template:
-    metadata:
-      labels:
-        app: expend
-    spec:
-      containers:
-      - name: rollouts-demo
-        image: docker.io/opsmxdev/issuegen:v3.0.6
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
+  templates:
+  - name: green
+    selector:
+      matchLabels:
+        app: rollouts-demo-exp-2
+    template:
+      metadata:
+        labels:
+          app: rollouts-demo-exp-2
+      spec:
+        containers:
+        - name: rollouts-demo-exp
+          image: docker.io/opsmxdev/issuegen:v3.0.6
+          imagePullPolicy: Always
+  - name: orange
+    selector:
+      matchLabels:
+        app: rollouts-demo-exp-2
+    template:
+      metadata:
+        labels:
+          app: rollouts-demo-exp-2
+      spec:
+        containers:
+        - name: rollouts-demo-exp
+          image: docker.io/opsmxdev/issuegen:v3.0.7
+          imagePullPolicy: Always
   analyses:
   - name: testapp
     templateName: testapp
