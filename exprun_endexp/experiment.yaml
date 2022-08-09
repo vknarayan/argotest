@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Experiment
 metadata:
-  name: runexp-end
+  name: runexp-start-end
 spec:
   duration: 10m
   templates:
