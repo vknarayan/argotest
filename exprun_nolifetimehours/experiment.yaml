@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Experiment
+metadata:
+  name: endexp-nolife
+spec:
+  duration: 10m
+  templates:
+  - name: green
+    selector:
+      matchLabels:
+        app: rollouts-demo-exp-2
+    template:
+      metadata:
+        labels:
+          app: rollouts-demo-exp-2
+      spec:
+        containers:
+        - name: baseline
+          image: docker.io/opsmxdev/issuegen:v3.0.7
+          imagePullPolicy: Always
+  - name: orange
+    selector:
+      matchLabels:
+        app: rollouts-demo-exp-2
+    template:
+      metadata:
+        labels:
+          app: rollouts-demo-exp-2
+      spec:
+        containers:
+        - name: canary
+          image: docker.io/opsmxdev/issuegen:v3.0.9
+          imagePullPolicy: Always
+  analyses:
+  - name: testapp
+    templateName: testapp
+    args:
+    - name: start-time
+      value: "{{experiment.availableAt}}"
+    - name: end-time
+      value: "{{experiment.finishedAt}}"
