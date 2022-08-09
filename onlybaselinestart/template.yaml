@@ -8,6 +8,7 @@ spec:
       provider:
         isd:
           gate_url: https://ds312.isd-dev.opsmx.net/
+          baseline_start_time: "2022-08-08T12:15:00Z"
           application: testapp
           threshold:
             pass: 80
