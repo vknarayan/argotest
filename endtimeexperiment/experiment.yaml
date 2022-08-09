@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Experiment
+name:
+  name: expend
+spec:
+  duration: 1h
+  analysis:
+    templateName: testapp
+    args:
+    - name: end-time
+      value: "{{experiment.finishedAt}}"
