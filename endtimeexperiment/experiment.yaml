@@ -6,7 +6,7 @@ metadata:
   name: expend
   namespace: argocd
 spec:
-  analysis:
+  analyses:
     args:
       - name: start-time
         value: '{{experiment.availableAt}}'
