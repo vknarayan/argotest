@@ -1,26 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Experiment
 metadata:
+  labels:
+    app.kubernetes.io/instance: endexp
   name: expend
+  namespace: argocd
 spec:
+  analysis:
+    args:
+      - name: start-time
+        value: '{{experiment.availableAt}}'
+      - name: end-time
+        value: '{{experiment.finishedAt}}'
+    templateName: testapp
   duration: 1h
   templates:
-  - name: baseline
-    replicas: 1
-    spec:
-      containers:
-      - name: base
-        image: docker.io/opsmxdev/issuegen:v3.0.6
-  - name: canary
-    replicas: 1
-    spec:
-      containers:
-      - name: can
-        image: docker.io/opsmxdev/issuegen:v3.0.7
-  analysis:
-    templateName: testapp
-    args:
-    - name: start-time
-      value: "{{experiment.availableAt}}"
-    - name: end-time
-      value: "{{experiment.finishedAt}}"
+    - name: baseline
+      replicas: 1
+      spec:
+        containers:
+          - image: 'docker.io/opsmxdev/issuegen:v3.0.6'
+            name: base
+    - name: canary
+      replicas: 1
+      spec:
+        containers:
+          - image: 'docker.io/opsmxdev/issuegen:v3.0.7'
+            name: can
