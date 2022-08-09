@@ -5,6 +5,7 @@ name:
 spec:
   duration: 1h
   analysis:
+  - name: testapp
     templateName: testapp
     args:
     - name: end-time
