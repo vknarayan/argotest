@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Experiment
 metadata:
-  name: endexp_basic
+  name: endexp-basic
 spec:
   duration: 10m
   templates:
