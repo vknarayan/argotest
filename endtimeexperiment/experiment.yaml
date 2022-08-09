@@ -29,7 +29,7 @@ spec:
       spec:
         containers:
         - name: rollouts-demo-exp
-          image: docker.io/opsmxdev/issuegen:v3.0.7
+          image: docker.io/opsmxdev/issuegen:v3.0.8
           imagePullPolicy: Always
   analyses:
   - name: testapp
