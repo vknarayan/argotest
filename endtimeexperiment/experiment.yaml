@@ -1,6 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Experiment
-name:
+metadata:
   name: expend
 spec:
   duration: 1h
