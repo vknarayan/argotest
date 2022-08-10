@@ -15,5 +15,5 @@ spec:
           canary_start_time: "{{args.start-time}}"
           end_time: "{{args.end-time}}"
           threshold:
-            pass: 60
-            marginal: 80
+            pass: 80
+            marginal: 60
