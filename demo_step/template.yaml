@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: oes-analysis-isd
+spec:
+  args:
+  - name: start-time
+  - name: end-time
+  metrics:
+    - name: oes-analysis-isd
+      provider:
+        isd:
+          gate_url: https://ds312.isd-dev.opsmx.net/
+          application: testapp
+          baseline_start_time: "{{args.start-time}}"
+          canary_start_time: "{{args.start-time}}"
+          end_time: "{{args.end-time}}"
+          threshold:
+            pass: 80
+            marginal: 60
