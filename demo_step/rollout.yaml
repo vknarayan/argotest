@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollout-experiment-step
+spec:
+  replicas: 4
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: rollout-experiment-step
+  template:
+    metadata:
+      labels:
+        app: rollout-experiment-step
+    spec:
+      containers:
+      - name: rollouts-demo
+        image: argoproj/rollouts-demo:green
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+  strategy:
+    canary:
+      steps:
+      - setWeight: 25
+      # The second step is the experiment which starts a single canary pod
+      - experiment:
+          templates:
+          - name: canary
+            specRef: canary
+          # This experiment performs its own analysis by referencing one or more AnalysisTemplates
+          # here. The success or failure of these runs will progress or abort the rollout respectively.
+          analyses:
+          - name: isd-analysis
+            templateName: isd-analysis
+            args:
+            - name: start-time
+              value: "{{experiment.availableAt}}"
+            - name: end-time
+              value: "{{experiment.finishedAt}}"
