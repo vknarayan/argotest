@@ -3,35 +3,34 @@ kind: Rollout
 metadata:
   name: rollout-experiment-step
 spec:
-  replicas: 5
+  replicas: 3
   revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: rollout-experiment-step
   template:
-    metadata:
+    metadata:   
       labels:
         app: rollout-experiment-step
     spec:
       containers:
-      - name: rollouts-demo
-        image: docker.io/opsmxdev/issuegen:v3.0.6
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
+        - name: rollouts-demo-exp
+          image: docker.io/opsmxdev/issuegen:v3.0.5
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
   strategy:
     canary:
       steps:
-      - experiment:
-          templates:
-          - name: baseline
-            specRef: baseline
-          - name: canary
-            specRef: canary
-          analyses:
-          - name: isd-analysis
-            templateName: isd-analysis
-            args:
-            - name: start-time
-              value: "{{experiment.availableAt}}"
-
+        - setWeight: 20
+        - pause: { duration: 31s }
+        - experiment:
+            analyses:
+              - name : testapp
+                requiredForCompletion: true
+                templateName: testapp
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
