@@ -22,8 +22,6 @@ spec:
   strategy:
     canary:
       steps:
-      - setWeight: 25
-      # The second step is the experiment which starts a single canary pod
       - experiment:
           templates:
           - name: canary
