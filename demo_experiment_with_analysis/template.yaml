@@ -4,6 +4,7 @@ metadata:
   name: analysis-isd
 spec:
   args:
+  - name: start-time
   - name: end-time
   metrics:
     - name: analysis-isd
