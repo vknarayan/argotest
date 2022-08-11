@@ -13,7 +13,7 @@ spec:
           application: testapp
           baseline_start_time: "{{args.start-time}}"
           canary_start_time: "{{args.start-time}}"
-          lifetimeHours: "0.1"
+          lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
