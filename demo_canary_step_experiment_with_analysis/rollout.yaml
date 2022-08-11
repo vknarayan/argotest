@@ -1,20 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: demo-canary-rollout
+  name: oes-argo-rollout-demo
 spec:
-  replicas: 3
+  replicas: 5
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: demo-canary-rollout
+      app: oes-argo-rollout-demo
   template:
-    metadata:   
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus_io_path: '/mgmt/prometheus'
+        prometheus_io_port: '8088'    
       labels:
-        app: demo-canary-rollout
+        app: oes-argo-rollout-demo
     spec:
       containers:
-        - name: rollouts-demo-exp
+        - name: rollouts-baseline
           image: docker.io/opsmxdev/issuegen:v3.0.6
           imagePullPolicy: Always
           ports:
@@ -25,18 +29,21 @@ spec:
         - setWeight: 20
         - pause: { duration: 31s }
         - experiment:
-            duration: 10m
             templates:
-            - name: baseline
-              specRef: stable
-            - name: canary
-              specRef: canary
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
             analyses:
-            - name: demo-isd-analysis
-              templateName: demo-isd-analysis
-              requiredForCompletion: true
-              args:
-              - name: start-time
-                value: "{{experiment.availableAt}}"
-              - name: end-time
-                value: "{{experiment.finishedAt}}"
+              - name : oes-analysis-isd
+                requiredForCompletion: true
+                templateName: oes-analysis-isd
+                args:
+                  - name: start-time
+                    value: "{{experiment.availableAt}}"                   
+                  - name: end-hash
+                    value: "{{experiment.finishedAt}}"
+        - setWeight: 60
+        - pause: { duration: 30s }                 
+        - setWeight: 80
+        - pause: { duration: 30s }
