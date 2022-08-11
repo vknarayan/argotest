@@ -29,20 +29,20 @@ spec:
         - setWeight: 20
         - pause: { duration: 31s }
         - experiment:
+            analyses:
+            - name : oes-analysis-isd
+              requiredForCompletion: true
+              templateName: oes-analysis-isd
+              args:
+                - name: start-time
+                  value: "{{experiment.availableAt}}"                   
+                - name: end-hash
+                  value: "{{experiment.finishedAt}}"
             templates:
               - name: baseline
                 specRef: stable
               - name: canary
                 specRef: canary
-            analyses:
-              - name : oes-analysis-isd
-                requiredForCompletion: true
-                templateName: oes-analysis-isd
-                args:
-                  - name: start-time
-                    value: "{{experiment.availableAt}}"                   
-                  - name: end-hash
-                    value: "{{experiment.finishedAt}}"
         - setWeight: 60
         - pause: { duration: 30s }                 
         - setWeight: 80
