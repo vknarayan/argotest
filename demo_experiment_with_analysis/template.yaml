@@ -11,7 +11,7 @@ spec:
       provider:
         isd:
           gate_url: https://ds312.isd-dev.opsmx.net/
-          application: testapp
+          application: demoapp
           baseline_start_time: "{{args.start-time}}"
           canary_start_time: "{{args.start-time}}"
           end_time: "{{args.end-time}}"
