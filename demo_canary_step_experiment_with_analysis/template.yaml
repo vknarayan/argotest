@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: demo-isd-analysis
+  name: oes-analysis-isd
 spec:
   args:
   - name: start-time
   - name: end-time
   metrics:
-    - name: demo-isd-analysis
+    - name: oes-analysis-isd
       provider:
         isd:
           gate_url: https://ds312.isd-dev.opsmx.net/
