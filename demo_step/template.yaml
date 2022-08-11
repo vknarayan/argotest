@@ -3,16 +3,12 @@ kind: AnalysisTemplate
 metadata:
   name: isd-analysis
 spec:
-  args:
-  - name: start-time
   metrics:
     - name: isd-analysis
       provider:
         isd:
           gate_url: https://ds312.isd-dev.opsmx.net/
           application: testapp
-          baseline_start_time: "{{args.start-time}}"
-          canary_start_time: "{{args.start-time}}"
           lifetimeHours: "0.05"
           threshold:
             pass: 80
