@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: rollout-experiment-step
 spec:
-  replicas: 4
+  replicas: 5
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -22,8 +22,10 @@ spec:
   strategy:
     canary:
       steps:
+      - setWeight: 20
+      - pause: { duration: 31s }
       - experiment:
-          duration: 5m
+          duration: 3m
           analyses:
           - name: isd-analysis
             templateName: isd-analysis
