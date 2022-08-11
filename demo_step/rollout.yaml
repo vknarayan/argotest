@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: rollouts-demo-exp
-          image: docker.io/opsmxdev/issuegen:v3.0.5
+          image: docker.io/opsmxdev/issuegen:v3.0.6
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
@@ -26,9 +26,9 @@ spec:
         - pause: { duration: 31s }
         - experiment:
             analyses:
-              - name : isd-analysis
+              - name : testapp
                 requiredForCompletion: true
-                templateName: isd-analysis
+                templateName: testapp
             templates:
               - name: baseline
                 specRef: stable
