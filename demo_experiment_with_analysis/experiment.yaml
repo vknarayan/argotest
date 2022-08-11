@@ -3,7 +3,7 @@ kind: Experiment
 metadata:
   name: runexp-isd
 spec:
-  duration: 10m
+  duration: 3m
   templates:
   - name: green
     selector:
