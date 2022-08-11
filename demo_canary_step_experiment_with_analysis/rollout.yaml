@@ -36,7 +36,7 @@ spec:
               args:
                 - name: start-time
                   value: "{{experiment.availableAt}}"                   
-                - name: end-hash
+                - name: end-time
                   value: "{{experiment.finishedAt}}"
             templates:
               - name: baseline
