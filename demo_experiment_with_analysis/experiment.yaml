@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Experiment
 metadata:
-  name: runexp-start-end
+  name: runexp-isd
 spec:
   duration: 10m
   templates:
@@ -32,8 +32,8 @@ spec:
           image: docker.io/opsmxdev/issuegen:v3.0.9
           imagePullPolicy: Always
   analyses:
-  - name: testapp
-    templateName: testapp
+  - name: analysis-isd
+    templateName: analysis-isd
     args:
     - name: start-time
       value: "{{experiment.availableAt}}"
