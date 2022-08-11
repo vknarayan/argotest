@@ -23,7 +23,6 @@ spec:
     canary:
       steps:
       - experiment:
-          duration: 3m
           analyses:
           - name: isd-analysis
             templateName: isd-analysis
