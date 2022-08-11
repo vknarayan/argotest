@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: testapp
+  name: analysis-isd
 spec:
   args:
   - name: end-time
   metrics:
-    - name: testapp
+    - name: analysis-isd
       provider:
         isd:
           gate_url: https://ds312.isd-dev.opsmx.net/
