@@ -23,14 +23,15 @@ spec:
     canary:
       steps:
       - experiment:
+          templates:
+          - name: baseline
+            specRef: baseline
+          - name: canary
+            specRef: canary
           analyses:
           - name: isd-analysis
             templateName: isd-analysis
             args:
             - name: start-time
               value: "{{experiment.availableAt}}"
-          templates:
-          - name: baseline
-            specRef: baseline
-          - name: canary
-            specRef: canary
+
