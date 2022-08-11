@@ -24,16 +24,14 @@ spec:
       steps:
       - experiment:
           duration: 5m
-          templates:
-          - name: baseline
-            specRef: baseline
-          - name: canary
-            specRef: canary
-          # This experiment performs its own analysis by referencing one or more AnalysisTemplates
-          # here. The success or failure of these runs will progress or abort the rollout respectively.
           analyses:
           - name: isd-analysis
             templateName: isd-analysis
             args:
             - name: start-time
               value: "{{experiment.availableAt}}"
+          templates:
+          - name: baseline
+            specRef: baseline
+          - name: canary
+            specRef: canary
