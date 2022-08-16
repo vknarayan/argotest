@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: rollouts-demo-exp
-          image: docker.io/shaikhjunaid1998/argo-rollouts:v1
+          image: docker.io/shaikhjunaid1998/argo-rollouts:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
