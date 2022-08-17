@@ -26,9 +26,9 @@ spec:
         - pause: { duration: 31s }
         - experiment:
             analyses:
-              - name : testapp
+              - name : multiservice
                 requiredForCompletion: true
-                templateName: testapp
+                templateName: multiservice
             templates:
               - name: baseline
                 specRef: stable
