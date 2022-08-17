@@ -26,3 +26,6 @@ spec:
             logScopeVariables: "kubernetes.container_name"
             BaselineLogScope: "oes-datascience-br"
             CanaryLogScope: "oes-datascience-cr"
+            MetricScopeVariables: "${namespace_key},${pod_key},${app_name},${component_name}"
+            BaselineMetricScope: "baseline,oes-gate,oes,autopilot"
+            CanaryMetricScope: "canary,oes-gate,oes,autopilot"
