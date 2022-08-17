@@ -18,6 +18,6 @@ spec:
           services:
           - servicename: "service1"
             gatename: "gate1"
-            MetricScopeVariables: "${namespace_key},${pod_key},${app_name},${component_name}"
-            BaselineMetricScope: "baseline,oes-gate,oes,autopilot"
-            CanaryMetricScope: "canary,oes-gate,oes,autopilot"
+            MetricScopeVariables: "job_name"
+            BaselineMetricScope: "oes-datascience-br"
+            CanaryMetricScope: "oes-datascience-cr"
