@@ -10,6 +10,7 @@ spec:
           gate_url: https://ds312.isd-dev.opsmx.net/
           application: multiservice
           canary_start_time:   "2022-08-10T13:15:00Z"
+          baseline_start_time:   "2022-08-10T13:15:00Z"
           lifetimeHours: "0.5"
           threshold:
             pass: 80
