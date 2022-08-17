@@ -6,12 +6,17 @@ spec:
   metrics:
     - name: testapp
       provider:
-        isd:
+        opsmx:
           gate_url: https://ds312.isd-dev.opsmx.net/
           application: testapp
-          baseline_start_time: "2022-08-02T11:15:00Z"
-          canary_start_time: "2022-08-02T11:15:00Z"
-          lifetimeHours: "0.5"
+          canary_start_time:   "2022-08-10T13:15:00Z"
+          lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
+          services:
+          - servicename: "service1"
+            gatename: "gate1"
+            MetricScopeVariables: "${namespace_key},${pod_key},${app_name},${component_name}"
+            BaselineMetricScope: "baseline,oes-gate,oes,autopilot"
+            CanaryMetricScope: "canary,oes-gate,oes,autopilot"
