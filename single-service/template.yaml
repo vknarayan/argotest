@@ -16,13 +16,12 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - servicename: "service1"
-            gatename: "gate1"
-            MetricScopeVariables: "job_name"
-            BaselineMetricScope: "oes-platform-br"
-            CanaryMetricScope: "oes-platform-cr"
           - servicename: "service2"
             gatename: "gate2"
             MetricScopeVariables: "job_name"
             BaselineMetricScope: "oes-sapor-br"
             CanaryMetricScope: "oes-sapor-cr"
+            logScopeVariables: "kubernetes.container_name"
+            BaselineLogScope: "oes-datascience-br"
+            CanaryLogScope: "oes-datascience-cr"
+            
