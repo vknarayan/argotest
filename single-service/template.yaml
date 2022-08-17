@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: testapp
+  name: multiservice
 spec:
   metrics:
-    - name: testapp
+    - name: multiservice
       provider:
         opsmx:
           gate_url: https://ds312.isd-dev.opsmx.net/
