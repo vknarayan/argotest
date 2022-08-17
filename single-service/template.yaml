@@ -15,9 +15,3 @@ spec:
           threshold:
             pass: 80
             marginal: 60
-          services:
-          - servicename: "service1"
-            gatename: "gate1"
-            MetricScopeVariables: "${namespace_key},${pod_key},${app_name},${component_name}"
-            BaselineMetricScope: "baseline,oes-gate,oes,autopilot"
-            CanaryMetricScope: "canary,oes-gate,oes,autopilot"
