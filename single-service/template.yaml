@@ -19,5 +19,5 @@ spec:
           - servicename: "service1"
             gatename: "gate1"
             MetricScopeVariables: "job_name"
-            BaselineMetricScope: "oes-datascience-br"
-            CanaryMetricScope: "oes-datascience-cr"
+            BaselineMetricScope: "oes-platform-br"
+            CanaryMetricScope: "oes-platform-cr"
