@@ -7,6 +7,7 @@ spec:
     - name: multiservice
       provider:
         opsmx:
+          user: admin
           gate_url: https://ds312.isd-dev.opsmx.net/
           application: multiservices
           canary_start_time:   "2022-08-17T09:25:00Z"
