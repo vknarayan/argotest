@@ -9,7 +9,7 @@ spec:
         opsmx:
           user: admin
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: multiservices
+          application: multiservice
           canaryStartTime:   "2022-08-17T09:25:00Z"
           baselineStartTime:   "2022-08-17T09:25:00Z"
           lifetimeHours: "0.5"
