@@ -17,7 +17,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - servicename: "service1"
+          - servicename: "services1"
             gatename: "gate1"
             metricScopeVariables: "job_name"
             baselineMetricScope: "oes-platform-br"
