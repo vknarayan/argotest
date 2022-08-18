@@ -10,14 +10,14 @@ spec:
           user: admin
           gateUrl: https://ds312.isd-dev.opsmx.net/
           application: multiservice
-          canaryStartTime:   "2022-08-17T09:25:00Z"
+          canaryStartTime:   "2022-O8-17T09:25:00Z"
           baselineStartTime:   "2022-08-17T09:25:00Z"
           lifetimeHours: "0.5"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - servicename: "services1"
+          - servicename: "service1"
             gatename: "gate1"
             metricScopeVariables: "job_name"
             baselineMetricScope: "oes-platform-br"
