@@ -1,21 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: argotest-pod-hash
+  name: rollouts-demo-exp-2
 spec:
   replicas: 3
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: argotest-pod-hash
+      app: rollouts-demo-exp-2
   template:
     metadata:   
       labels:
-        app: argotest-pod-hash
+        app: rollouts-demo-exp-2
     spec:
       containers:
         - name: rollouts-demo-exp
-          image: docker.io/opsmxdev/issuegen:v3.0.1
+          image: docker.io/opsmxdev/issuegen:v3.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
@@ -26,9 +26,9 @@ spec:
         - pause: { duration: 31s }
         - experiment:
             analyses:
-              - name : multiservice
+              - name : demoapp
                 requiredForCompletion: true
-                templateName: multiservice
+                templateName: demoapp
                 args:
                 - name: stable-hash
                   valueFrom:
