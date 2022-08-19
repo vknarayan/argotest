@@ -14,7 +14,7 @@ spec:
         app: rollouts-demo-exp-2
     spec:
       containers:
-        - name: rollouts-demo-exp
+        - name: rollouts-demo-exp-2
           image: docker.io/opsmxdev/issuegen:v3.0.0
           imagePullPolicy: Always
           ports:
