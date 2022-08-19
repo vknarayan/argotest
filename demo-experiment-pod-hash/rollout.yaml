@@ -43,3 +43,4 @@ spec:
                     value: {{templates.baseline.podTemplateHash}}
                   - name: canary-hash
                     value: {{templates.canary.podTemplateHash}}
+        - setWeight: 60
