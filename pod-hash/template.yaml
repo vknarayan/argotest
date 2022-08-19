@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: multiservice
+  name: demoapp
 spec:
   args:
   - name: stable-hash
   - name: canary-hash
   metrics:
-    - name: multiservice
+    - name: demoapp
       provider:
         opsmx:
           user: admin
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: multiservice
+          application: demoapp
           lifetimeHours: "0.05"
           threshold:
             pass: 80
