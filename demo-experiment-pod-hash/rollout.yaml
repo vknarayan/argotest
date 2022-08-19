@@ -43,7 +43,7 @@ spec:
                     valueFrom:
                       podTemplateHashValue: Latest
         - setWeight: 60
-        - pause: { duration: 30s }
+        - pause: { duration: 120s }
         - experiment:
             templates:
               - name: baseline
