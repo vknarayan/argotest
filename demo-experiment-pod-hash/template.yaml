@@ -22,5 +22,5 @@ spec:
             serviceName: service1
             gateName: gate1
             metricScopeVariables: "job_name"
-            baselineMetricScope: ".*{{args.canary-hash}}.*" 
-            canaryMetricScope: ".*{{args.baseline-hash}}.*"                         
+            baselineMetricScope: ".*{{args.baseline-hash}}.*" 
+            canaryMetricScope: ".*{{args.canary-hash}}.*"                         
