@@ -41,10 +41,10 @@ spec:
                 args:
                   - name: baseline-hash
                     valueFrom:
-                      podTemplateHashValue: stable               
+                      podTemplateHashValue: Stable               
                   - name: canary-hash
                     valueFrom:
-                      podTemplateHashValue: canary
+                      podTemplateHashValue: Latest
         - setWeight: 60
         - pause: { duration: 10s }
         - setWeight: 80
