@@ -9,7 +9,7 @@ spec:
   metrics:
     - name: analysis-isd
       provider:
-        isd:
+        opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
           application: demoapp
           user: admin
