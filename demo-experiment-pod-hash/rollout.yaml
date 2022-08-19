@@ -40,7 +40,7 @@ spec:
                 templateName: oes-analysis
                 args:
                   - name: baseline-hash
-                    value: {{templates.baseline.podTemplateHash}}
+                    value: "{{templates.baseline.podTemplateHash}}"
                   - name: canary-hash
-                    value: {{templates.canary.podTemplateHash}}
+                    value: "{{templates.canary.podTemplateHash}}"
         - setWeight: 60
