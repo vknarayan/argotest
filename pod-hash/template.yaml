@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: multiservice
+spec:
+  args:
+  - name: stable-hash
+  - name: canary-hash
+  metrics:
+    - name: multiservice
+      provider:
+        opsmx:
+          user: admin
+          gateUrl: https://ds312.isd-dev.opsmx.net/
+          application: multiservice
+          lifetimeHours: "0.05"
+          threshold:
+            pass: 80
+            marginal: 60
+          services:
+          - servicename: "service1"
+            gatename: "gate1"
+            metricScopeVariables: "job_name"
+            baselineMetricScope: "oes-platform-{{args.canary-hash}}.*"
+            canaryMetricScope: "oes-platform-{{args.canary-hash}}.*"
