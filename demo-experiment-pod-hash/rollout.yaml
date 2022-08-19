@@ -44,7 +44,7 @@ spec:
                   - name: canary-hash
                     value: "{{templates.canary.podTemplateHash}}"
         - setWeight: 60
-        - pause: { duration: 20s }
+        - pause: { duration: 30s }
         - experiment:
             templates:
               - name: baseline
@@ -54,11 +54,9 @@ spec:
             analyses:
               - name : oes-analysis
                 requiredForCompletion: true
-                templateName: oes-analysis
+                templateName: oes-analysis-job
                 args:
                   - name: baseline-hash
-                    value: "{{templates.baseline.podTemplateHash}}"
+                    value: "{{templates.baseline.podTemplateHash}}"                   
                   - name: canary-hash
                     value: "{{templates.canary.podTemplateHash}}"
-                  - pause: { duration: 2s }
-        - setWeight: 100 
