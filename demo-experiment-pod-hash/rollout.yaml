@@ -54,7 +54,7 @@ spec:
             analyses:
               - name : oes-analysis
                 requiredForCompletion: true
-                templateName: oes-analysis-job
+                templateName: oes-analysis
                 args:
                   - name: baseline-hash
                     value: "{{templates.baseline.podTemplateHash}}"                   
