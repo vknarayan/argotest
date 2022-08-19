@@ -44,7 +44,7 @@ spec:
                   - name: canary-hash
                     value: "{{templates.canary.podTemplateHash}}"
         - setWeight: 60
-        - pause: { duration: 2s }
+        - pause: { duration: 20s }
         - experiment:
             templates:
               - name: baseline
