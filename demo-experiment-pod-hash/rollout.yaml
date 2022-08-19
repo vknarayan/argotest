@@ -39,10 +39,9 @@ spec:
                 requiredForCompletion: true
                 templateName: oes-analysis
                 args:
-                  - name: baseline-hash
-                    value: "{{templates.baseline.podTemplateHash}}"
-                  - name: canary-hash
-                    value: "{{templates.canary.podTemplateHash}}"
+                  - name: experiment-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
         - setWeight: 60
         - pause: { duration: 30s }
         - experiment:
