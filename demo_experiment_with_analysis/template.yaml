@@ -10,11 +10,12 @@ spec:
     - name: analysis-isd
       provider:
         isd:
-          gate_url: https://ds312.isd-dev.opsmx.net/
+          gateUrl: https://ds312.isd-dev.opsmx.net/
           application: demoapp
-          baseline_start_time: "{{args.start-time}}"
-          canary_start_time: "{{args.start-time}}"
-          end_time: "{{args.end-time}}"
+          user: admin
+          baselineStartTime: "{{args.start-time}}"
+          canaryStartTime: "{{args.start-time}}"
+          endTime: "{{args.end-time}}"
           threshold:
             pass: 80
             marginal: 60
