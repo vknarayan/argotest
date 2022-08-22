@@ -1,0 +1,26 @@
+kind: AnalysisTemplate
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: oes-analysis-for-canary
+spec:
+  args:
+    - name: canary-hash
+    - name: baseline-hash
+  metrics:
+    - name: oes-analysis-for-canary
+      count: 1
+      provider:
+        opsmx:
+          gateUrl: https://ds312.isd-dev.opsmx.net/
+          application: demoapphash
+          user: admin
+          lifetimeHours: "0.05"
+          threshold:
+            pass: 80
+            marginal: 60
+          services:
+          - serviceName: service1
+            gateName: gate1
+            metricScopeVariables: "job_name"
+            baselineMetricScope: ".*{{args.baseline-hash}}.*baseline.*" 
+            canaryMetricScope: ".*{{args.canary-hash}}.*canary.*"
