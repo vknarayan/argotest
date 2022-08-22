@@ -7,7 +7,7 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: rollouts-demo-exp-2
+      app: rollout-experiment-step
   template:
     metadata:
       annotations:
@@ -15,7 +15,7 @@ spec:
         prometheus_io_path: '/mgmt/prometheus'
         prometheus_io_port: '8088'    
       labels:
-        app: rollouts-demo-exp-2
+        app: rollout-experiment-step
     spec:
       containers:
         - name: rollouts-baseline
