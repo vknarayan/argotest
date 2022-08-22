@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: demoapphash
+          application: democanaryhashapp
           user: admin
           lifetimeHours: "0.05"
           threshold:
