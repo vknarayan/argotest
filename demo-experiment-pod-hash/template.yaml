@@ -18,8 +18,8 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - servicename: service1
-            gatename: gate1
+          - serviceName: service1
+            gateName: gate1
             metricScopeVariables: "job_name"
             baselineMetricScope: ".*{{args.experiment-hash}}.*baseline.*" 
             canaryMetricScope: ".*{{args.experiment-hash}}.*canary.*"
