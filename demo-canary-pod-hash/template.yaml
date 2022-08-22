@@ -9,6 +9,7 @@ spec:
   metrics:
     - name: oes-analysis-for-canary
       count: 1
+      initialDelay: 60s
       provider:
         opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
