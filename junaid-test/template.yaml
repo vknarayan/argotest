@@ -8,6 +8,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
+          user: admin
           application: testapp
           lifetimeHours: "0.1"
           threshold:
