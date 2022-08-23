@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: demo-multi-service
+  name: demo-multi-service-v2
 spec:
   replicas: 5
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: demo-multi-service
+      app: demo-multi-service-v2
   template:
     metadata:   
       labels:
-        app: demo-multi-service
+        app: demo-multi-service-v2
     spec:
       containers:
         - name: multiservice-demo-issuegen
@@ -26,9 +26,9 @@ spec:
         - pause: { duration: 31s }
         - experiment:
             analyses:
-              - name : multiservice-analysis
+              - name : multiservice-analysis-v2
                 requiredForCompletion: true
-                templateName: multiservice-analysis
+                templateName: multiservice-analysis-v2
                 args:
                   - name: experiment-hash
                     valueFrom:
@@ -42,9 +42,9 @@ spec:
         - pause: { duration: 60s }
         - experiment:
             analyses:
-              - name : multiservice-analysis
+              - name : multiservice-analysis-v2
                 requiredForCompletion: true
-                templateName: multiservice-analysis
+                templateName: multiservice-analysis-v2
                 args:
                   - name: experiment-hash
                     valueFrom:
