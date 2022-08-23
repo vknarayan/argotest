@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: multiservice-analysis
+  name: multiservice-analysis-v2
 spec:
   args:
     - name: experiment-hash
@@ -12,7 +12,7 @@ spec:
         opsmx:
           user: admin
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: multiservice
+          application: demomultiserviceapp
           lifetimeHours: "0.05"
           threshold:
             pass: 80
