@@ -6,7 +6,7 @@ spec:
   args:
     - name: experiment-hash
   metrics:
-    - name: multiservice-analysis
+    - name: multiservice-analysis-v2
       initialDelay: "60s"
       provider:
         opsmx:
