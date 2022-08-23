@@ -28,7 +28,7 @@ spec:
             analyses:
               - name : multiservice-analysis
                 requiredForCompletion: true
-                templateName: multiservice
+                templateName: multiservice-analysis
             templates:
               - name: baseline
                 specRef: stable
@@ -40,7 +40,7 @@ spec:
             analyses:
               - name : multiservice-analysis
                 requiredForCompletion: true
-                templateName: multiservice
+                templateName: multiservice-analysis
             templates:
               - name: baseline
                 specRef: stable
