@@ -1,0 +1,57 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: demo-multi-service
+spec:
+  replicas: 5
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: demo-multi-service
+  template:
+    metadata:   
+      labels:
+        app: demo-multi-service
+    spec:
+      containers:
+        - name: multiservice-demo-issuegen
+          image: docker.io/opsmxdev/issuegen:v3.0.3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
+  strategy:
+    canary:
+      steps:
+        - setWeight: 20
+        - pause: { duration: 31s }
+        - experiment:
+            analyses:
+              - name : multiservice-analysis
+                requiredForCompletion: true
+                templateName: multiservice-analysis
+                args:
+                  - name: experiment-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
+        - setWeight: 60
+        - pause: { duration: 60s }
+        - experiment:
+            analyses:
+              - name : multiservice-analysis
+                requiredForCompletion: true
+                templateName: multiservice-analysis
+                args:
+                  - name: experiment-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
+        - setWeight: 90
