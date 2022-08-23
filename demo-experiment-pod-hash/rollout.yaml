@@ -58,3 +58,4 @@ spec:
                   - name: experiment-hash
                     valueFrom: 
                       podTemplateHashValue: Latest
+        - setWeight: 90
