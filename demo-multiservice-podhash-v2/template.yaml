@@ -28,6 +28,3 @@ spec:
             metricScopeVariables: "namespace_key,pod_key"
             baselineMetricScope: "argocd,.*{{args.experiment-hash}}.*baseline.*"
             canaryMetricScope: "argocd,.*{{args.experiment-hash}}.*canary.*"
-            logScopeVariables: "kubernetes.container_name"
-            baselineLogScope: "oes-datascience"
-            canaryLogScope: "oes-datascience"
