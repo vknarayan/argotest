@@ -16,7 +16,7 @@ spec:
       spec:
         containers:
         - name: baseline
-          image: docker.io/opsmxdev/issuegen:v3.0.5
+          image: docker.io/opsmxdev/issuegen:v3.0.0
           imagePullPolicy: Always
   - name: orange
     selector:
