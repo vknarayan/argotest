@@ -15,7 +15,7 @@ spec:
           application: testappy
           user: admin
           baselineStartTime: "2022-08-23T13:15:00Z"
-          endTime: "2022-08-23T13:45:00Z"
+          lifetimeHours: 0.5
           threshold:
             pass: 80
             marginal: 60
