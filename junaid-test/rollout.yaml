@@ -34,3 +34,15 @@ spec:
                 specRef: stable
               - name: canary
                 specRef: canary
+        - setWeight: 20
+        - pause: { duration: 31s }
+        - experiment:
+            analyses:
+              - name : testapp
+                requiredForCompletion: true
+                templateName: testapp
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
