@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: nr-isd-rollout
+spec:
+  replicas: 4
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: nr-isd-rollout
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus_io_path: '/mgmt/prometheus'
+        prometheus_io_port: '8088'    
+      labels:
+        app: nr-isd-rollout
+    spec:
+      containers:
+        - name: nr-app-baseline
+          image: http://quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1400
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
+          env:
+            - name: NEWRELIC_LICENSE
+              value: 68b87ee3618f714a039cead822d6d250b54dNRAL
+            - name: SERVICE_NAME
+              value: issugen-baseline
+  strategy:
+    canary:
+      steps:
+        - setWeight: 20
+        - pause: { duration: 60s }
+        - setWeight: 60
+        - pause: { duration: 60s }
+        - setWeight: 90
+        - pause: { duration: 60s }
