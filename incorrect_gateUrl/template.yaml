@@ -11,7 +11,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: testapp
+          application: multiservice
           user: user1
           baselineStartTime: "2022-08-23T13:15:00Z"
           lifetimeHours: "0.5"
