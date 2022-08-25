@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: newrelic
+          application: nrcustom
           user: admin
           lifetimeHours: "0.05"
           threshold:
