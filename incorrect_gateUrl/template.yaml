@@ -21,6 +21,6 @@ spec:
           services:
           - serviceName: "service1"
             gateName: "gate1"
-            logScopeVariables: "kubernetes.container_name"
-            baselineLogScope: "oes-datascience-br"
-            canaryLogScope: "oes-datascience-cr"
+            metricScopeVariables: "job_name"
+            baselineMetricScope: "oes-platform-br"
+            canaryMetricScope: "oes-platform-cr"
