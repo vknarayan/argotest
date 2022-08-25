@@ -34,7 +34,7 @@ spec:
                 specRef: stable
               - name: canary
                 specRef: canary
-        - setWeight: 20
+        - setWeight: 60
         - pause: { duration: 31s }
         - experiment:
             analyses:
