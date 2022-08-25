@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: nr-app-baseline
-          image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1401
+          image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1402
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
@@ -33,5 +33,15 @@ spec:
       steps:
         - setWeight: 50
         - pause: { duration: 60s }
+        - analysis:
+            templates:
+              - templateName: isd-analysis-nr
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
         - setWeight: 90
         - pause: { duration: 60s }
