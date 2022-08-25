@@ -15,13 +15,13 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - servicename: "service1"
-            gatename: "gate1"
+          - serviceName: "service1"
+            gateName: "gate1"
             metricScopeVariables: "job_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-cr"
-          - servicename: "service2"
-            gatename: "gate2"
+          - serviceName: "service2"
+            gateName: "gate2"
             metricScopeVariables: "job_name"
             baselineMetricScope: "oes-sapor-br"
             canaryMetricScope: "oes-sapor-cr"
