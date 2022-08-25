@@ -10,7 +10,7 @@ spec:
     - name: analysis-isd
       provider:
         opsmx:
-          gateUrl: https://ds312.isd-dev.opsmx.net/
+          gateUrl: https://ds312.isd-dev.opssmx.net/
           user: admin
           application: testapp
           user: admin
