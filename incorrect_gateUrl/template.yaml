@@ -11,7 +11,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: multiservice
+          application: multiserviced
           user: user1
           baselineStartTime: "2022-08-23T13:15:00Z"
           lifetimeHours: "0.5"
@@ -25,7 +25,7 @@ spec:
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-cr"
           - serviceName: "service2"
-            gateName: "gate3"
+            gateName: "gate2"
             metricScopeVariables: "job_name"
             baselineMetricScope: "oes-sapor-br"
             canaryMetricScope: "oes-sapor-cr"
