@@ -14,7 +14,7 @@ spec:
           application: multiservice
           user: me
           baselineStartTime: "2022-08-23T13:15:00Z"
-          end_time: "{{args.end-time}}"
+          endTime: "{{args.end-time}}"
           threshold:
             pass: 80
             marginal: 60
