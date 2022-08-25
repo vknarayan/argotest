@@ -14,7 +14,7 @@ spec:
           application: multiservice
           user: me
           baselineStartTime: "2022-08-23T13:15:00Z"
-          lifetimeHours: "0.5"
+          end_time: "{{args.end-time}}"
           threshold:
             pass: 80
             marginal: 60
