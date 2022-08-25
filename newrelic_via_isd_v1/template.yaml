@@ -22,6 +22,6 @@ spec:
           services:
           - serviceName: service1
             gateName: gate1
-            metricScopeVariables: "host.displayName"
+            metricScopeVariables: "${host_key}"
             baselineMetricScope: "nr-isd-rollout-{{args.baseline-hash}}-.*" 
             canaryMetricScope: "nr-isd-rollout-{{args.canary-hash}}-.*"
