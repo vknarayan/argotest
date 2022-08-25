@@ -24,7 +24,7 @@ spec:
             metricScopeVariables: "job_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-cr"
-          - servicename: "service2"
+          - servicename: "service3"
             gatename: "gate2"
             metricScopeVariables: "job_name"
             baselineMetricScope: "oes-sapor-br"
