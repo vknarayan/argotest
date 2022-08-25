@@ -29,7 +29,7 @@ spec:
       spec:
         containers:
         - name: canary
-          image: docker.io/opsmxdev/issuegen:v3.0.9
+          image: docker.io/opsmxdev/issuegen:v3.0.8
           imagePullPolicy: Always
   analyses:
   - name: analysis-isd
