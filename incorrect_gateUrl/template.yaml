@@ -11,11 +11,10 @@ spec:
       provider:
         opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          user: admin
           application: testapp
-          user: admin
+          user: user1
           baselineStartTime: "2022-08-23T13:15:00Z"
-          lifetimeHours: "O.5"
+          lifetimeHours: "0.5"
           threshold:
             pass: 80
             marginal: 60
