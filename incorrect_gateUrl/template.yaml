@@ -14,7 +14,7 @@ spec:
           user: admin
           application: testapp
           user: admin
-          baselineStartTime: "2022-08-23T13:15:00Z"
+          baselineStartTime: "2022-O8-23T13:15:00Z"
           endTime: "2022-08-23T13:45:00Z"
           threshold:
             pass: 80
