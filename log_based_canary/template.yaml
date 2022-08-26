@@ -23,5 +23,5 @@ spec:
           - serviceName: logsvc
             gateName: loggate
             logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*{{args.baseline-hash}}.*" 
-            canaryLogScope: ".*{{args.canary-hash}}.*"
+            baselineLogScope: "oes-argo-canary-rollout-log-{{args.baseline-hash}}.*" 
+            canaryLogScope: "oes-argo-canary-rollout-log-{{args.canary-hash}}.*"
