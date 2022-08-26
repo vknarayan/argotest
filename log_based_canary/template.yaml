@@ -9,7 +9,7 @@ spec:
   metrics:
     - name: oes-analysis-for-canary-log
       count: 1
-      initialDelay: 60s
+      initialDelay: 30s
       provider:
         opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
@@ -20,8 +20,8 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: service1
-            gateName: gate1
-            metricScopeVariables: "namespace_key,pod_key"
-            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*" 
-            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*"
+          - serviceName: logsvc
+            gateName: loggate
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*" 
+            canaryLogScope: ".*{{args.canary-hash}}.*"
