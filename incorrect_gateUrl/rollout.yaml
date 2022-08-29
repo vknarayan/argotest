@@ -1,46 +1,34 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: test
+  name: argotest-single-service
 spec:
-  replicas: 4
+  replicas: 3
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: test
+      app: argotest-single-service
   template:
     metadata:   
       labels:
-        app: test
+        app: argotest-single-service
     spec:
       containers:
         - name: rollouts-demo-exp
-          image: docker.io/opsmxdev/issuegen:v3.0.2
+          image: docker.io/opsmxdev/issuegen:v3.0.8
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
   strategy:
     canary:
       steps:
-        - setWeight: 25
+        - setWeight: 20
         - pause: { duration: 10s }
         - experiment:
             analyses:
-              - name : analysis-isd
+              - name : multiservice
                 requiredForCompletion: true
-                templateName: analysis-isd
-            templates:
-              - name: baseline
-                specRef: stable
-              - name: canary
-                specRef: canary
-        - setWeight: 50
-        - pause: { duration: 10s }
-        - experiment:
-            analyses:
-              - name : analysis-isd
-                requiredForCompletion: true
-                templateName: analysis-isd
+                templateName: multiservice
             templates:
               - name: baseline
                 specRef: stable
