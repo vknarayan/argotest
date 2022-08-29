@@ -26,9 +26,9 @@ spec:
         - pause: { duration: 10s }
         - experiment:
             analyses:
-              - name : testapp
+              - name : analysis-isd
                 requiredForCompletion: true
-                templateName: testapp
+                templateName: analysis-isd
             templates:
               - name: baseline
                 specRef: stable
@@ -38,9 +38,9 @@ spec:
         - pause: { duration: 10s }
         - experiment:
             analyses:
-              - name : testapp
+              - name : analysis-isd
                 requiredForCompletion: true
-                templateName: testapp
+                templateName: analysis-isd
             templates:
               - name: baseline
                 specRef: stable
