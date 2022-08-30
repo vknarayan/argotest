@@ -1,0 +1,30 @@
+kind: AnalysisTemplate
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: oes-analysis-for-canary-log
+spec:
+  args:
+    - name: canary-hash
+    - name: baseline-hash
+  metrics:
+    - name: oes-analysis-for-canary-log
+      count: 1
+      initialDelay: 30s
+      provider:
+        opsmx:
+          gateUrl: https://ds312.isd-dev.opsmx.net/
+          application: democanaryloghashapp
+          user: admin
+          lifetimeHours: "0.1"
+          threshold:
+            pass: 80
+            marginal: 60
+          services:
+          - serviceName: logsvc
+            gateName: loggate
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: "oes-argo-rollout-{{args.baseline-hash}}.*" 
+            canaryLogScope: "oes-argo-rollout-{{args.canary-hash}}.*"
+            metricScopeVariables: "namespace_key,pod_key"
+            baselineMetricScope: "argocd,oes-argo-rollout-{{args.baseline-hash}}.*"
+            canaryMetricScope: "argocd,oes-argo-rollout-{{args.canary-hash}}.*"
