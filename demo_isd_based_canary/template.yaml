@@ -1,14 +1,14 @@
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: oes-analysis-for-canary-log
+  name: oes-analysis-for-canary
 spec:
   args:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-    - name: oes-analysis-for-canary-log
-      count: 1
+    - name: oes-analysis-for-canary
+      count: 3
       initialDelay: 30s
       provider:
         opsmx:
