@@ -13,15 +13,15 @@ spec:
       provider:
         opsmx:
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: democanaryloghashapp
+          application: demoservice
           user: admin
           lifetimeHours: "0.1"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - serviceName: logsvc
-            gateName: loggate
+          - serviceName: demoservice
+            gateName: demo-gate
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: "oes-argo-rollout-{{args.baseline-hash}}.*" 
             canaryLogScope: "oes-argo-rollout-{{args.canary-hash}}.*"
