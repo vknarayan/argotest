@@ -8,7 +8,7 @@ spec:
     - name: baseline-hash
   metrics:
     - name: oes-analysis-for-canary
-      count: 3
+      count: 1
       initialDelay: 30s
       provider:
         opsmx:
