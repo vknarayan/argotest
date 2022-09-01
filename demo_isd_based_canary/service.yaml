@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: rollout-canary-log
+  name: testapp-rollout
 spec:
   selector:
-    app: rollout-canary-log
+    app: testapp-rollout
   ports:
   - protocol: TCP
     port: 80
