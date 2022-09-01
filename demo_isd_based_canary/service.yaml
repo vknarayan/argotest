@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: rollout-canary-log
+spec:
+  selector:
+    app: rollout-canary-log
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8088
