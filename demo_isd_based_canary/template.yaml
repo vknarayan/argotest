@@ -15,7 +15,7 @@ spec:
           gateUrl: https://ds312.isd-dev.opsmx.net/
           application: demoappforcanary
           user: admin
-          lifetimeHours: "0.1"
+          lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
