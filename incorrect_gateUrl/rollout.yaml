@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: rollouts-demo-exp
-          image: docker.io/opsmxdev/issuegen:v3.0.8
+          image: docker.io/opsmxdev/issuegen:v3.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
@@ -23,19 +23,6 @@ spec:
     canary:
       steps:
         - setWeight: 20
-        - pause: { duration: 10s }
-        - experiment:
-            analyses:
-              - name : multiservice
-                requiredForCompletion: true
-                templateName: multiservice
-            templates:
-              - name: baseline
-                specRef: stable
-              - name: canary
-                specRef: canary
-                
-        - setWeight: 40
         - pause: { duration: 10s }
         - experiment:
             analyses:
