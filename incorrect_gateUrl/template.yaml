@@ -10,7 +10,9 @@ spec:
           user: admin
           gateUrl: https://ds312.isd-dev.opsmx.net/
           application: multiservice
-          lifetimeHours: "0.05"
+          baselineStartTime: "2022-08-02T12:15:00Z"
+          canaryStartTime: "2022-08-02T12:15:00Z"
+          lifetimeHours: "0.5"
           threshold:
             pass: 80
             marginal: 60
