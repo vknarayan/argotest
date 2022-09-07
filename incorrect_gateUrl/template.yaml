@@ -5,11 +5,11 @@ metadata:
 spec:
   metrics:
     - name: multiservice
-      count: 1
+      consecutiveErrorLimit: 2
       provider:
         opsmx:
           user: admin
-          gateUrl: https://ds312.isdd-dev.opsmx.net/
+          gateUrl: https://ds312.isd-dev.opsmx.net/
           application: multiservice
           lifetimeHours: "0.5"
           threshold:
