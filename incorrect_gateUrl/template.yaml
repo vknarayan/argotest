@@ -9,8 +9,19 @@ spec:
         opsmx:
           user: admin
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: multiservice
+          application: demomultiserviceapp
           lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
+          services:
+          - serviceName: "service1"
+            gateName: "gate1"
+            metricScopeVariables: "namespace_key,pod_key"
+            baselineMetricScope: "argocd,.*{{args.experiment-hash}}.*baseline.*"
+            canaryMetricScope: "argocd,.*{{args.experiment-hash}}.*canary.*"
+          - serviceName: "service2"
+            gateName: "gate2"
+            metricScopeVariables: "namespace_key,pod_key"
+            baselineMetricScope: "argocd,.*{{args.experiment-hash}}.*baseline.*"
+            canaryMetricScope: "argocd,.*{{args.experiment-hash}}.*canary.*"
