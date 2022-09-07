@@ -5,6 +5,7 @@ metadata:
 spec:
   metrics:
     - name: multiservice
+      count: 1
       provider:
         opsmx:
           user: admin
