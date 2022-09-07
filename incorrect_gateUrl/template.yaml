@@ -9,19 +9,24 @@ spec:
         opsmx:
           user: admin
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: demomultiserviceapp
-          lifetimeHours: "0.05"
+          application: multiservice
+          baselineStartTime: "2022-08-02T12:15:00Z"
+          canaryStartTime: "2022-08-02T12:15:00Z"
+          lifetimeHours: "0.5"
           threshold:
             pass: 80
             marginal: 60
           services:
           - serviceName: "service1"
             gateName: "gate1"
-            metricScopeVariables: "namespace_key,pod_key"
-            baselineMetricScope: "argocd,.*{{args.experiment-hash}}.*baseline.*"
-            canaryMetricScope: "argocd,.*{{args.experiment-hash}}.*canary.*"
+            metricScopeVariables: "job_name"
+            baselineMetricScope: "oes-platform-br"
+            canaryMetricScope: "oes-platform-cr"
           - serviceName: "service2"
             gateName: "gate2"
-            metricScopeVariables: "namespace_key,pod_key"
-            baselineMetricScope: "argocd,.*{{args.experiment-hash}}.*baseline.*"
-            canaryMetricScope: "argocd,.*{{args.experiment-hash}}.*canary.*"
+            metricScopeVariables: "job_name"
+            baselineMetricScope: "oes-sapor-br"
+            canaryMetricScope: "oes-sapor-cr"
+            logScopeVariables: "kubernetes.container_name"
+            baselineLogScope: "oes-datascience-br"
+            canaryLogScope: "oes-datascience-cr"
