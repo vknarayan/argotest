@@ -27,6 +27,3 @@ spec:
             metricScopeVariables: "job_name"
             baselineMetricScope: "oes-sapor-br"
             canaryMetricScope: "oes-sapor-cr"
-            logScopeVariables: "kubernetes.container_name"
-            baselineLogScope: "oes-datascience-br"
-            canaryLogScope: "oes-datascience-cr"
