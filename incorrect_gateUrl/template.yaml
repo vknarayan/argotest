@@ -3,9 +3,6 @@ kind: AnalysisTemplate
 metadata:
   name: oes-analysis-isd
 spec:
-  args:
-  - name: start-time
-  - name: end-time
   metrics:
     - name: oes-analysis-isd
       provider:
