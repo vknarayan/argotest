@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: oes-argo-rollout-demo
+  name: oes-argo-rollout
 spec:
-  replicas: 5
+  replicas: 4
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: oes-argo-rollout-demo
+      app: rollouts-demo-exp-2
   template:
     metadata:
       annotations:
@@ -15,7 +15,7 @@ spec:
         prometheus_io_path: '/mgmt/prometheus'
         prometheus_io_port: '8088'    
       labels:
-        app: oes-argo-rollout-demo
+        app: rollouts-demo-exp-2
     spec:
       containers:
         - name: rollouts-baseline
@@ -27,23 +27,35 @@ spec:
     canary:
       steps:
         - setWeight: 20
-        - pause: { duration: 31s }
+        - pause: { duration: 2s }
         - experiment:
-            analyses:
-            - name : multiservice
-              requiredForCompletion: true
-              templateName: multiservice
-              args:
-                - name: start-time
-                  value: "{{experiment.availableAt}}"                   
-                - name: end-time
-                  value: "{{experiment.finishedAt}}"
             templates:
               - name: baseline
                 specRef: stable
               - name: canary
                 specRef: canary
+            analyses:
+              - name : multiservice
+                requiredForCompletion: true
+                templateName: multiservice
+                args:
+                  - name: experiment-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
         - setWeight: 60
-        - pause: { duration: 30s }                 
-        - setWeight: 80
-        - pause: { duration: 30s }
+        - pause: { duration: 60s }
+        - experiment:
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
+            analyses:
+              - name : multiservice
+                requiredForCompletion: true
+                templateName: multiservice
+                args:
+                  - name: experiment-hash
+                    valueFrom: 
+                      podTemplateHashValue: Latest
+        - setWeight: 90
