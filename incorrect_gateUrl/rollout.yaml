@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: oes-argo-rollout
+  name: oes-argo-rollout-demo
 spec:
-  replicas: 4
+  replicas: 5
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: rollouts-demo-exp-2
+      app: oes-argo-rollout-demo
   template:
     metadata:
       annotations:
@@ -15,11 +15,11 @@ spec:
         prometheus_io_path: '/mgmt/prometheus'
         prometheus_io_port: '8088'    
       labels:
-        app: rollouts-demo-exp-2
+        app: oes-argo-rollout-demo
     spec:
       containers:
         - name: rollouts-baseline
-          image: docker.io/opsmxdev/issuegen:v3.0.2
+          image: docker.io/opsmxdev/issuegen:v3.0.9
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
@@ -27,35 +27,23 @@ spec:
     canary:
       steps:
         - setWeight: 20
-        - pause: { duration: 2s }
+        - pause: { duration: 31s }
         - experiment:
+            analyses:
+            - name : oes-analysis-isd
+              requiredForCompletion: true
+              templateName: oes-analysis-isd
+              args:
+                - name: start-time
+                  value: "{{experiment.availableAt}}"                   
+                - name: end-time
+                  value: "{{experiment.finishedAt}}"
             templates:
               - name: baseline
                 specRef: stable
               - name: canary
                 specRef: canary
-            analyses:
-              - name : multiservice
-                requiredForCompletion: true
-                templateName: multiservice
-                args:
-                  - name: experiment-hash
-                    valueFrom:
-                      podTemplateHashValue: Latest
         - setWeight: 60
-        - pause: { duration: 60s }
-        - experiment:
-            templates:
-              - name: baseline
-                specRef: stable
-              - name: canary
-                specRef: canary
-            analyses:
-              - name : multiservice
-                requiredForCompletion: true
-                templateName: multiservice
-                args:
-                  - name: experiment-hash
-                    valueFrom: 
-                      podTemplateHashValue: Latest
-        - setWeight: 90
+        - pause: { duration: 30s }                 
+        - setWeight: 80
+        - pause: { duration: 30s }
