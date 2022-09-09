@@ -1,27 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: multiservice
+  name: analysis-isd
 spec:
   args:
   - name: start-time
   - name: end-time
   metrics:
-    - name: multiservice
+    - name: analysis-isd
       provider:
         opsmx:
-          user: admin
           gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: multiservice
+          application: demoapp
+          user: admin
           baselineStartTime: "{{args.start-time}}"
           canaryStartTime: "{{args.start-time}}"
           endTime: "{{args.end-time}}"
           threshold:
             pass: 80
             marginal: 60
-          #services:
-          #- serviceName: service1
-          #  gateName: gate1
-          #  metricScopeVariables: "job_name"
-          #  baselineMetricScope: ".*{{args.experiment-hash}}.*baseline.*" 
-          #  canaryMetricScope: ".*{{args.experiment-hash}}.*canary.*"
