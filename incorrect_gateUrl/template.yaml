@@ -4,7 +4,8 @@ metadata:
   name: multiservice
 spec:
   args:
-    - name: experiment-hash
+  - name: start-time
+  - name: end-time
   metrics:
     - name: multiservice
       provider:
@@ -12,15 +13,15 @@ spec:
           user: admin
           gateUrl: https://ds312.isd-dev.opsmx.net/
           application: multiservice
-          baselineStartTime: "2022-08-02T12:15:00Z"
-          canaryStartTime: "2022-08-02T12:15:00Z"
-          lifetimeHours: "0.5"
+          baselineStartTime: "{{args.start-time}}"
+          canaryStartTime: "{{args.start-time}}"
+          endTime: "{{args.end-time}}"
           threshold:
             pass: 80
             marginal: 60
-          services:
-          - serviceName: service1
-            gateName: gate1
-            metricScopeVariables: "job_name"
-            baselineMetricScope: ".*{{args.experiment-hash}}.*baseline.*" 
-            canaryMetricScope: ".*{{args.experiment-hash}}.*canary.*"
+          #services:
+          #- serviceName: service1
+          #  gateName: gate1
+          #  metricScopeVariables: "job_name"
+          #  baselineMetricScope: ".*{{args.experiment-hash}}.*baseline.*" 
+          #  canaryMetricScope: ".*{{args.experiment-hash}}.*canary.*"
