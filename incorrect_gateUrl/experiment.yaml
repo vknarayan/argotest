@@ -16,7 +16,7 @@ spec:
       spec:
         containers:
         - name: baseline
-          image: docker.io/opsmxdev/issuegen:v3.0.6
+          image: docker.io/opsmxdev/issuegen:v3.0.0
           imagePullPolicy: Always
   - name: orange
     selector:
@@ -29,11 +29,11 @@ spec:
       spec:
         containers:
         - name: canary
-          image: docker.io/opsmxdev/issuegen:v3.0.9
+          image: docker.io/opsmxdev/issuegen:v3.0.1
           imagePullPolicy: Always
   analyses:
-  - name: analysis-isd
-    templateName: analysis-isd
+  - name: multiservice
+    templateName: multiservice
     args:
     - name: start-time
       value: "{{experiment.availableAt}}"
