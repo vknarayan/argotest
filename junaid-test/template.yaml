@@ -10,7 +10,7 @@ spec:
           gateUrl: https://ds312.isd-dev.opsmx.net/
           user: admin
           application: multiservice
-#           baselineStartTime: "2022-08-20T13:15:00Z"
+          baselineStartTime: "2022-08-20T13:15:00Z"
           lifetimeHours: "0.05"
           threshold:
             pass: 80
