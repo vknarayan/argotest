@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: analysis-isd
+spec:
+  args:
+  - name: start-time
+  - name: end-time
+  metrics:
+    - name: analysis-isd
+      provider:
+        opsmx:
+          gateUrl: https://ds312.isd-dev.opsmx.net/
+          application: demoapp
+          user: admin
+          baselineStartTime: "{{args.start-time}}"
+          canaryStartTime: "{{args.start-time}}"
+          endTime: "{{args.end-time}}"
+          threshold:
+            pass: 80
+            marginal: 60
