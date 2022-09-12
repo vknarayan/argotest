@@ -33,6 +33,7 @@ spec:
           imagePullPolicy: Always
   analyses:
   - name: analysis-isd
+    requiredForCompletion: true
     templateName: analysis-isd
     args:
     - name: start-time
