@@ -10,7 +10,8 @@ spec:
           gateUrl: https://ds312.isd-dev.opsmx.net/
           user: admin
           application: multiservice
-          #apiVersion: v3 or v5
+          globalLogTemplate: "logtemplate"
+          globalMetricTemplate: "metrictemplate"
           baselineStartTime: "2022-08-20T13:15:00Z"
           canaryStartTime: "2022-08-20T13:15:00Z"
           lifetimeHours: "0.05"
