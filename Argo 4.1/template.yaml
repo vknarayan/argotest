@@ -11,9 +11,7 @@ spec:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           user: admin
-          application: multiservice
-          baselineStartTime: "2022-08-20T13:15:00Z"
-          canaryStartTime: "2022-08-20T13:15:00Z"
+          application: multiservice"
           lifetimeHours: "0.05"
           threshold:
             pass: 80
