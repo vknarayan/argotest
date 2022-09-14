@@ -5,6 +5,7 @@ metadata:
 spec:
   args:
     - name: experiment-hash
+    - name: start-time
   metrics:
     - name: testapp
       provider:
@@ -13,6 +14,8 @@ spec:
           user: admin
           application: multiservice"
           lifetimeHours: "0.05"
+          baselineStartTime: "{{args.start-time}}"
+          canaryStartTime: "{{args.start-time}}"
           threshold:
             pass: 80
             marginal: 60
