@@ -1,18 +1,18 @@
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: oes-analysis-for-canaryv41
+  name: oes-analysis-for-canary
 spec:
   args:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-    - name: oes-analysis-for-canaryv41
+    - name: oes-analysis-for-canary
       count: 1
       initialDelay: 30s
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          gateUrl: https://ds312.isd-dev.opsmx.net/
           application: demoappforcanary
           user: admin
           lifetimeHours: "0.05"
@@ -21,8 +21,10 @@ spec:
             marginal: 60
           services:
           - serviceName: demoservice
-            gateName: demogate
-            logtemplateName: logtemp
+            gateName: demo-gate
             logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*-{{args.baseline-hash}}.*" 
-            canaryLogScope: ".*-{{args.canary-hash}}.*"
+            baselineLogScope: "oes-argo-rollout-{{args.baseline-hash}}.*" 
+            canaryLogScope: "oes-argo-rollout-{{args.canary-hash}}.*"
+            metricScopeVariables: "namespace_key,pod_key"
+            baselineMetricScope: "argocd,oes-argo-rollout-{{args.baseline-hash}}.*"
+            canaryMetricScope: "argocd,oes-argo-rollout-{{args.canary-hash}}.*"
