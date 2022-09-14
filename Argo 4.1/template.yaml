@@ -20,10 +20,6 @@ spec:
           services:
           - serviceName: "service1"
             gateName: "gate1"
-            metricTemplateName: "metrictemplate"
-            metricScopeVariables: "namespace_key,pod_key"
-            baselineMetricScope: "argocd,.*{{args.experiment-hash}}.*baseline.*"
-            canaryMetricScope: "argocd,.*{{args.experiment-hash}}.*canary.*"
             logTemplateName: "logtemp"
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.experiment-hash}}.*baseline.*"
