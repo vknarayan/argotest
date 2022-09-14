@@ -3,6 +3,8 @@ kind: AnalysisTemplate
 metadata:
   name: multiservice
 spec:
+  args:
+    - name: experiment-hash
   metrics:
     - name: testapp
       provider:
@@ -20,10 +22,10 @@ spec:
           - serviceName: "service1"
             gateName: "gate1"
             metricTemplateName: "metrictemplate"
-            metricScopeVariables: "job_name"
-            baselineMetricScope: "oes-platform-br"
-            canaryMetricScope: "oes-platform-cr"
+            metricScopeVariables: "namespace_key,pod_key"
+            baselineMetricScope: "argocd,.*{{args.experiment-hash}}.*baseline.*"
+            canaryMetricScope: "argocd,.*{{args.experiment-hash}}.*canary.*"
             logTemplateName: "logtemp"
-            logScopeVariables: "job_name"
-            baselineLogScope: "oes-platform-br"
-            canaryLogScope: "oes-platform-cr"
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.experiment-hash}}.*baseline.*"
+            canaryLogScope: ".*{{args.experiment-hash}}.*baseline.*"
