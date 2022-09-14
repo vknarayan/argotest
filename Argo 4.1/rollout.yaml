@@ -29,6 +29,10 @@ spec:
               - name : multiservice
                 requiredForCompletion: true
                 templateName: multiservice
+                args:
+                  - name: experiment-hash
+                    valueFrom: 
+                      podTemplateHashValue: Latest
             templates:
               - name: baseline
                 specRef: stable
