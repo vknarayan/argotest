@@ -7,28 +7,23 @@ spec:
     - name: testapp
       provider:
         opsmx:
-          gateUrl: https://ds312.isd-dev.opsmx.net/
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
           user: admin
           application: multiservice
-          globalLogTemplate: "logtemplate"
-          globalMetricTemplate: "metrictemplate"
           baselineStartTime: "2022-08-20T13:15:00Z"
           canaryStartTime: "2022-08-20T13:15:00Z"
           lifetimeHours: "0.05"
-          #endTime: "2022-08-20T13:45:00Z"
           threshold:
             pass: 80
             marginal: 60
           services:
           - serviceName: "service1"
             gateName: "gate1"
-            metricTemplateName: "temp"
-            metricTemplateVersion: "1.0"
+            metricTemplateName: "metrictemplate"
             metricScopeVariables: "job_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-cr"
-            logTemplateName: "temp"
-            logTemplateVersion: "1.0"
+            logTemplateName: "logtemp"
             logScopeVariables: "job_name"
             baselinelogScope: "oes-platform-br"
             canarylogScope: "oes-platform-cr"
