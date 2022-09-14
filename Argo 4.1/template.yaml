@@ -25,5 +25,5 @@ spec:
             canaryMetricScope: "oes-platform-cr"
             logTemplateName: "logtemp"
             logScopeVariables: "job_name"
-            baselinelogScope: "oes-platform-br"
-            canarylogScope: "oes-platform-cr"
+            baselineLogScope: "oes-platform-br"
+            canaryLogScope: "oes-platform-cr"
