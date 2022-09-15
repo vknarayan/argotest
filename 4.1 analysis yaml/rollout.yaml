@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: argotest-single-service
+spec:
+  replicas: 3
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: argotest-single-service
+  template:
+    metadata:   
+      labels:
+        app: argotest-single-service
+    spec:
+      containers:
+        - name: rollouts-demo-exp
+          image: docker.io/opsmxdev/issuegen:v3.0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
+  strategy:
+    canary:
+      steps:
+        - setWeight: 20
+        - pause: { duration: 10s }
+        - experiment:
+            analyses:
+              - name : multiservice
+                requiredForCompletion: true
+                templateName: multiservice
+                args:
+                  - name: experiment-hash
+                    valueFrom: 
+                      podTemplateHashValue: Latest
+                  - name: start-time
+                    value: "{{experiment.availableAt}}"
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
+            
