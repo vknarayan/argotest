@@ -41,6 +41,6 @@ spec:
     - name: end-time
       value: "{{experiment.finishedAt}}"
     - name: baseline-hash
-      value: "{{templates.baseline.podTemplateHash}}"
+      value: "{{templates.green.podTemplateHash}}"
     - name: canary-hash
-      value: "{{templates.canary.podTemplateHash}}"
+      value: "{{templates.orange.podTemplateHash}}"
