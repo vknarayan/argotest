@@ -15,8 +15,6 @@ spec:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: testdemoapp1234
           user: admin
-          baselineStartTime: "2022-09-10T06:45:00Z"
-          canaryStartTime: "2022-09-10T06:45:00Z"
           lifetimeHours: "0.05"
           threshold:
             pass: 80
@@ -24,10 +22,6 @@ spec:
           services:
           - serviceName: demoserviceforisd
             gateName: demogateforisd
-            logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: "fluentd.*" 
-            canaryLogScope: "fluentd.*"
-            logTemplateName: logtemp
             metricScopeVariables: "namespace_key,pod_key"
             baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*"
             canaryMetricScope: "argocd,.*{{args.canary-hash}}.*"
