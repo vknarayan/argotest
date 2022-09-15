@@ -28,3 +28,7 @@ spec:
             baselineLogScope: "fluentd.*" 
             canaryLogScope: "fluentd.*"
             logTemplateName: logtemp
+            metricScopeVariables: "namespace_key,pod_key"
+            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*"
+            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*"
+            metricTemplateName: metrictemplate
