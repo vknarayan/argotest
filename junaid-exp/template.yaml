@@ -28,3 +28,4 @@ spec:
               metricScopeVariables: 'job_name'
               baselineMetricScope: 'oes-platform-br'
               canaryMetricScope: 'oes-platform-cr'
+              gateName: gate1
