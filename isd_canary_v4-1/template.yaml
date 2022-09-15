@@ -26,3 +26,7 @@ spec:
             baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*"
             canaryMetricScope: "argocd,.*{{args.canary-hash}}.*"
             metricTemplateName: metrictemplate
+            logTemplateName: "logtemp"
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.experiment-hash}}.*baseline.*"
+            canaryLogScope: ".*{{args.experiment-hash}}.*canary.*"
