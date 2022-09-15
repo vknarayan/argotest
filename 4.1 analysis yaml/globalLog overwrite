@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: multiservice
+spec:
+  args:
+    - name: experiment-hash
+    - name: start-time
+  metrics:
+    - name: testapp
+      provider:
+        opsmx:
+          gateUrl: 'https://isd-dev.argo-dev.opsmx.net/'
+          user: admin
+          application: multiservice
+          lifetimeHours: '0.05'
+          globalLogTemplate: logverification
+          threshold:
+            pass: 80
+            marginal: 60
+          services:
+            - serviceName: service1
+              gateName: gate1
+              logTemplateName: logtemp
+              logScopeVariables: kubernetes.pod_name
+              baselineLogScope: '.*{{args.experiment-hash}}.*baseline.*'
+              canaryLogScope: '.*{{args.experiment-hash}}.*canary.*'
+              metricTemplateName: metrictemplate
+              metricScopeVariables: 'namespace_key,pod_key'
+              baselineMetricScope: 'argocd,.*{{args.experiment-hash}}.*baseline.*'
+              canaryMetricScope: 'argocd,.*{{args.experiment-hash}}.*canary.*'
+
