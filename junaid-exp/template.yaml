@@ -10,12 +10,20 @@ spec:
     - name: analysis-isd
       provider:
         opsmx:
-          gateUrl: https://ds312.isd-dev.opsmx.net/
-          application: demoapp
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          application: multiservice
           user: admin
-          baselineStartTime: "{{args.start-time}}"
-          canaryStartTime: "{{args.start-time}}"
-          endTime: "{{args.end-time}}"
+          lifetimeHours: '0.05'
+          globalLogTemplate: logverification
           threshold:
             pass: 80
             marginal: 60
+          services:
+            - logTemplateName: logtemp
+              logScopeVariables: kubernetes.pod_name
+              baselineLogScope: '.*{{args.experiment-hash}}.*baseline.*'
+              canaryLogScope: '.*{{args.experiment-hash}}.*canary.*'
+              metricTemplateName: metrictemplate
+              metricScopeVariables: 'namespace_key,pod_key'
+              baselineMetricScope: 'argocd,.*{{args.experiment-hash}}.*baseline.*'
+              canaryMetricScope: 'argocd,.*{{args.experiment-hash}}.*canary.*'
