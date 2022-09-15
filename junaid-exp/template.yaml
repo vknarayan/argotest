@@ -20,10 +20,10 @@ spec:
             marginal: 60
           services:
             - logTemplateName: logtemp
-              logScopeVariables: kubernetes.pod_name
-              baselineLogScope: '.*{{args.experiment-hash}}.*baseline.*'
-              canaryLogScope: '.*{{args.experiment-hash}}.*canary.*'
+              logScopeVariables: kubernetes.container_name
+              baselineLogScope: 'oes-datascience-br'
+              canaryLogScope: 'oes-datascience-cr'
               metricTemplateName: metrictemplate
-              metricScopeVariables: 'namespace_key,pod_key'
-              baselineMetricScope: 'argocd,.*{{args.experiment-hash}}.*baseline.*'
-              canaryMetricScope: 'argocd,.*{{args.experiment-hash}}.*canary.*'
+              metricScopeVariables: 'job_name'
+              baselineMetricScope: 'oes-platform-br'
+              canaryMetricScope: 'oes-platform-cr'
