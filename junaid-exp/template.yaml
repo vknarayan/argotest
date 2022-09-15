@@ -19,7 +19,8 @@ spec:
             pass: 80
             marginal: 60
           services:
-            - logTemplateName: logtemp
+            - serviceName: service1
+              logTemplateName: logtemp
               logScopeVariables: kubernetes.container_name
               baselineLogScope: 'oes-datascience-br'
               canaryLogScope: 'oes-datascience-cr'
