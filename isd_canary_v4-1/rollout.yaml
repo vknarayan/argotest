@@ -42,7 +42,7 @@ spec:
         - pause: { duration: 30s }
         - analysis:
             templates:
-              - templateName: oes-analysis-for-canary
+              - templateName: oes-analysis-for-canary-v41
             args:
               - name: canary-hash
                 valueFrom:
