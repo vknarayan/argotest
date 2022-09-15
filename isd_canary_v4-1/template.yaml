@@ -20,8 +20,8 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: demoservice
-            gateName: demogate
+          - serviceName: demoserviceforisd
+            gateName: demogateforisd
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*-{{args.baseline-hash}}.*" 
             canaryLogScope: ".*-{{args.canary-hash}}.*"
