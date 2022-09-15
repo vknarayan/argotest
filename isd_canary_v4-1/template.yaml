@@ -25,8 +25,8 @@ spec:
             metricScopeVariables: "namespace_key,pod_key"
             baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*"
             canaryMetricScope: "argocd,.*{{args.canary-hash}}.*"
-            metricTemplateName: metrictemplate
-            logTemplateName: "logtemp"
+            metricTemplateName: prometheusverificationv41
+            logTemplateName: logtemp
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
