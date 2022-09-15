@@ -6,6 +6,8 @@ spec:
   args:
   - name: start-time
   - name: end-time
+  - name: baseline-hash
+  - name: canary-hash
   metrics:
     - name: analysis-isd
       provider:
@@ -21,9 +23,9 @@ spec:
           services:
             - logTemplateName: logtemp
               logScopeVariables: kubernetes.container_name
-              baselineLogScope: 'oes-datascience-br'
-              canaryLogScope: 'oes-datascience-cr'
+              baselineLogScope: '.*{{args.baseline-hash}}.*'
+              canaryLogScope: '.*{{args.canary-hash}}.*'
               metricTemplateName: metrictemplate
-              metricScopeVariables: 'job_name'
-              baselineMetricScope: 'oes-platform-br'
-              canaryMetricScope: 'oes-platform-cr'
+              metricScopeVariables: 'namespace_key,pod_key'
+              baselineMetricScope: 'argocd,.*{{args.baseline-hash}}.*'
+              canaryMetricScope: 'argocd,.*{{args.canary-hash}}.*'
