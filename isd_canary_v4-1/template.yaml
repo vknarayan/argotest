@@ -14,7 +14,7 @@ spec:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: testdemoapp1234
-          user: admin
+          user: user1
           lifetimeHours: "0.05"
           threshold:
             pass: 80
