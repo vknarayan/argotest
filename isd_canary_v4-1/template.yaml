@@ -21,7 +21,7 @@ spec:
             marginal: 60
           services:
           - serviceName: demoserviceforisd
-            metricScopeVariables: "namespace_key,pod_key"
-            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*"
-            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*"
+            metricScopeVariables: "namespace_key,pod_key,testdemoapp1234"
+            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,testdemoapp1234"
+            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,testdemoapp1234"
             metricTemplateName: PromClusterHealth
