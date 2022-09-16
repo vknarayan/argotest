@@ -12,7 +12,7 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://isd-demo.argo-dev.opsmx.net/
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: testdemoapp1234
           user: user1
           lifetimeHours: "0.05"
@@ -25,3 +25,7 @@ spec:
             baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,testapp-rolloutv41"
             canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,testapp-rolloutv41"
             metricTemplateName: PrometheusMetricTemplate
+            logTemplateName: logtemp
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
