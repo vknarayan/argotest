@@ -12,7 +12,7 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          gateUrl: https://isd-demo.argo-dev.opsmx.net/
           application: testdemoapp1234
           user: user1
           lifetimeHours: "0.05"
@@ -20,7 +20,8 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+          - serviceName: testing
+            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,testapp-rolloutv41"
             canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,testapp-rolloutv41"
             metricTemplateName: PrometheusMetricTemplate
