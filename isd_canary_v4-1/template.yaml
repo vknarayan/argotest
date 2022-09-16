@@ -20,8 +20,12 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: demoserviceforisd
+            - serviceName: demoserviceforisd
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,testapp-rolloutv41"
             canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,testapp-rolloutv41"
             metricTemplateName: PrometheusMetricTemplate
+            logTemplateName: logtemp
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
