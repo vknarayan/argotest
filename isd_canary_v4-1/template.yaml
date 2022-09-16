@@ -20,8 +20,8 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: demoserviceforisd
-            logTemplateName: logtemp
-            logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"
+          serviceName: demoserviceforisd
+            metricScopeVariables: "namespace_key,pod_key,test-rolloutv41"
+            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,test-rolloutv41"
+            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,test-rolloutv41"
+            metricTemplateName: PromClusterHealth
