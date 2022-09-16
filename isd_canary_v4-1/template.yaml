@@ -9,7 +9,7 @@ spec:
   metrics:
     - name: oes-analysis-for-canary-v41
       count: 1
-      initialDelay: 30s
+      initialDelay: 10s
       provider:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
