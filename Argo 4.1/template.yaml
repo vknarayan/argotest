@@ -1,30 +1,30 @@
-apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
+apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: multiservice
+  name: oes-analysis-for-canary-v41
 spec:
   args:
-    - name: experiment-hash
-    - name: start-time
+    - name: canary-hash
+    - name: baseline-hash
   metrics:
-    - name: testapp
+    - name: oes-analysis-for-canary-v41
+      count: 1
+      initialDelay: 10s
       provider:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          user: admin
-          application: "multiservice"
+          application: testdemoapp1234
+          user: user1
           lifetimeHours: "0.05"
           threshold:
-            pass: 80
-            marginal: 60
+            pass: "80"
+            marginal: "60"
           services:
-          - serviceName: "service1"
-            gateName: "gate1"
+          - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,testapp-rolloutv41"
+            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,testapp-rolloutv41"
+            metricTemplateName: PrometheusMetricTemplate
             logTemplateName: "logtemp"
             logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*{{args.experiment-hash}}.*baseline.*"
-            canaryLogScope: ".*{{args.experiment-hash}}.*canary.*"
-            metricTemplateName: "metrictemplate"
-            metricScopeVariables: "namespace_key,pod_key"
-            baselineMetricScope: "argocd,.*{{args.experiment-hash}}.*baseline.*"
-            canaryMetricScope: "argocd,.*{{args.experiment-hash}}.*canary.*"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
