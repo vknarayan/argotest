@@ -1,13 +1,13 @@
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: argo41
+  name: multiservice
 spec:
   args:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-    - name: argo41
+    - name: multiservice
       count: 1
       initialDelay: 10s
       provider:
