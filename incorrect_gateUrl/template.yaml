@@ -9,7 +9,7 @@ spec:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           user: admin
-          application: junaid-test
+          application: negative-tests
           baselineStartTime: "2022-08-20T13:15:00Z"
           lifetimeHours: "0.05"
           threshold:
