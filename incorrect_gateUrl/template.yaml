@@ -7,12 +7,16 @@ spec:
     - name: oes-analysis-isd
       provider:
         opsmx:
-          gateUrl: https://ds312.isd-dev.opsmx.net/
-          user: "admin"
-          application: testapp
-          baselineStartTime: "2022-09-05T13:15:00Z"
-          canaryStartTime: "2022-09-05T13:15:00Z"
-          endTime: "2022-09-05T13:45:00Z"
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          user: admin
+          application: junaid-test
+          baselineStartTime: "2022-08-20T13:15:00Z"
+          lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
+          services:
+          - metricScopeVariables: "job_name"
+            baselineMetricScope: "oes-platform-br"
+            canaryMetricScope: "oes-platform-cr"
+            metricTemplateName: PrometheusMetricTemplate
