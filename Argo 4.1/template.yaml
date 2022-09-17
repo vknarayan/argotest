@@ -3,9 +3,6 @@ apiVersion: argoproj.io/v1alpha1
 metadata:
   name: multiservice
 spec:
-  args:
-    - name: canary
-    - name: baseline
   metrics:
     - name: multiservice
       count: 1
@@ -20,7 +17,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,.*{{args.baseline}}.*,testapp-rolloutv41"
-            canaryMetricScope: "argocd,.*{{args.canary}}.*,testapp-rolloutv41"
+          - metricScopeVariables: "${namespace_key},${app_name}"
+            baselineMetricScope: "argocd,testapp-rolloutv41"
+            canaryMetricScope: "argocd,testapp-rolloutv41"
             metricTemplateName: PrometheusMetricTemplate
