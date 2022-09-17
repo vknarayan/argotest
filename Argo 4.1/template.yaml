@@ -4,8 +4,8 @@ metadata:
   name: multiservice
 spec:
   args:
-    - name: canary-hash
-    - name: baseline-hash
+    - name: canary
+    - name: baseline
   metrics:
     - name: multiservice
       count: 1
@@ -21,6 +21,6 @@ spec:
             marginal: 60
           services:
           - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,testapp-rolloutv41"
-            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,testapp-rolloutv41"
+            baselineMetricScope: "argocd,.*{{args.baseline}}.*,testapp-rolloutv41"
+            canaryMetricScope: "argocd,.*{{args.canary}}.*,testapp-rolloutv41"
             metricTemplateName: PrometheusMetricTemplate
