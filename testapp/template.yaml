@@ -21,10 +21,6 @@ spec:
             marginal: 60
           services:
           - serviceName: uni
-            metricTemplateName: PrometheusMetricTemplate
-            metricScopeVariables: "${namespace_key},${pod_key}"
-            baselineMetricScope: "metricdriver,{{args.baseline-hash}}"
-            canaryMetricScope: "metricdriver,{{args.canary-hash}}"
             logTemplateName: logTemp
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
