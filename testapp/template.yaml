@@ -21,7 +21,7 @@ spec:
             marginal: 60
           services:
           - serviceName: uni
-            logTemplateName: logTemp
+            logTemplateName: logverification
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
