@@ -15,12 +15,12 @@ spec:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: issuegenapp-canary
           user: admin
-          lifetimeHours: "0.1"
+          lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - serviceName: uni
+          - serviceName: unicorn
             logTemplateName: logverification
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
