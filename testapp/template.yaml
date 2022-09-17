@@ -25,3 +25,7 @@ spec:
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
+            metricTemplateName: PrometheusMetricTemplate
+            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "metricdriver,{{args.baseline-hash}},demoapp-issuegen"
+            canaryMetricScope: "metricdriver,{{args.canary-hash}},demoapp-issuegen"
