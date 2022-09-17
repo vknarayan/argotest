@@ -19,4 +19,4 @@ spec:
           - metricScopeVariables: "job_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-cr"
-            templateName: PrometheusMetricTemplate
+            metricTemplateName: PrometheusMetricTemplate
