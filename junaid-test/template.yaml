@@ -7,7 +7,7 @@ spec:
     - name: testapp
       provider:
         opsmx:
-          gateUrl: https://ds312.isd-dev.opsmx.net/
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
           user: admin
           application: junaid-test
           baselineStartTime: "2022-08-20T13:15:00Z"
