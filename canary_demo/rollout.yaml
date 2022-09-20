@@ -6,11 +6,11 @@ spec:
   replicas: 1
   strategy:
     canary:
-      canaryService: rollouts-demo-canary-v2
-      stableService: rollouts-demo-stable-v1
+      canaryService: demo-canary-svc
+      stableService: demo-stable-svc
       trafficRouting:
         nginx:
-          stableIngress: canary-demo-ingress 
+          stableIngress: canary-demo-ing 
       steps:
       - setWeight: 5
       - pause: { duration: 60s }
@@ -23,11 +23,11 @@ spec:
                 podTemplateHashValue: Latest
             - name: baseline-hash
               valueFrom:
-                podTemplateHashValue: Stable 
+                podTemplateHashValue: Stable
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: canary-demo
+      app: rollouts-demo
   template:
     metadata:
       annotations:
@@ -42,7 +42,7 @@ spec:
         image: docker.io/opsmxdev/issuegen:v3.0.3
         ports:
         - name: http
-          containerPort: 8088
+          containerPort: 8080
           protocol: TCP
         resources:
           requests:
