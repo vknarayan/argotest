@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rollouts-demo-canary-v2
+  name: demo-canary-svc
 spec:
   ports:
   - port: 80
-    targetPort: 8088
+    targetPort: http
     protocol: TCP
+    name: http
   selector:
     app: canary-demo
 
@@ -14,11 +15,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rollouts-demo-stable-v1
+  name: demo-stable-svc
 spec:
   ports:
   - port: 80
-    targetPort: 8088
+    targetPort: http
     protocol: TCP
+    name: http
   selector:
     app: canary-demo
