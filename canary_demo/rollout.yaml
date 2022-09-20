@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: canary-demo
-        image: docker.io/opsmxdev/issuegen:v3.0.1
+        image: docker.io/opsmxdev/issuegen:v3.0.2
         ports:
         - name: http
           containerPort: 8088
