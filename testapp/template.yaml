@@ -20,7 +20,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: unicorn
+          - serviceName: unicorny
             logTemplateName: logverification
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
