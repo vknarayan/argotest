@@ -30,6 +30,10 @@ spec:
       app: canary-demo
   template:
     metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus_io_path: '/mgmt/prometheus'
+        prometheus_io_port: '8080'
       labels:
         app: canary-demo
     spec:
