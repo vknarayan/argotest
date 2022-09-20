@@ -13,7 +13,7 @@ spec:
           stableIngress: canary-demo-ing 
       steps:
       - setWeight: 5
-      - pause: { duration: 60s }
+      - pause: { duration: 120s }
       - analysis:
           templates:
             - templateName: canary-isd-analysis
