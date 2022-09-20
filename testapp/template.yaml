@@ -20,11 +20,11 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - logTemplateName: Log-Elk
+          - logTemplateName: logverification
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
-            metricTemplateName: PrometheusVerificationISDTemplateV4
+            metricTemplateName: PrometheusMetricTemplate
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "metricdriver,{{args.baseline-hash}},demoapp-issuegen"
             canaryMetricScope: "metricdriver,{{args.canary-hash}},demoapp-issuegen"
