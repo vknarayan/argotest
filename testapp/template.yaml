@@ -12,7 +12,7 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://argoqa.isd-dev.opsmx.net/
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: issuegenapp-canary
           user: admin
           lifetimeHours: "0.05"
