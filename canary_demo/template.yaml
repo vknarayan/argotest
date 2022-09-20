@@ -1,0 +1,31 @@
+kind: AnalysisTemplate
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: canary-isd-analysis
+spec:
+  args:
+    - name: canary-hash
+    - name: baseline-hash
+  metrics:
+    - name: canary-score
+      count: 1
+      initialDelay: 30s
+      provider:
+        opsmx:
+          gateUrl: https://isd.oea.opsmx.net/
+          application: canary-app
+          user: admin
+          lifetimeHours: "0.05"
+          threshold:
+            pass: 55
+            marginal: 50
+          services:
+          - serviceName: issuegensvc
+            metricTemplateName: PrometheusVerificationISDTemplateV4
+            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "metricdriver,.*{{args.baseline-hash}}.*,canary-demo"
+            canaryMetricScope: "metricdriver,.*{{args.canary-hash}}.*,canary-demo"
+            logTemplateName: ElasticVerificationISDTemplate
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
