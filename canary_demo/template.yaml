@@ -8,8 +8,6 @@ spec:
     - name: baseline-hash
   metrics:
     - name: canary-score
-      count: 1
-      initialDelay: 30s
       provider:
         opsmx:
           gateUrl: https://isd.oea.opsmx.net/
