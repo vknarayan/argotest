@@ -12,7 +12,7 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          gateUrl: https://argoqa.isd-dev.opsmx.net/
           application: issuegenapp-canary
           user: admin
           lifetimeHours: "0.05"
@@ -20,8 +20,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: unicorny
-            logTemplateName: logverification
+          - logTemplateName: logverification
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
