@@ -16,3 +16,25 @@ spec:
             name: rollouts-demo-stable-v1
             port: 
               number: 80              
+
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sample-canary-demo2
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: canaryv2.oea.opsmx.net 
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          # Reference to a Service name, also specified in the Rollout spec.strategy.canary.stableService field
+          service:
+            name: rollouts-demo-canary-v2
+            port: 
+              number: 80
