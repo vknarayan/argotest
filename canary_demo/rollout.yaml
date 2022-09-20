@@ -13,7 +13,7 @@ spec:
           stableIngress: canary-demo-ingress 
       steps:
       - setWeight: 5
-      - pause: {}
+      - pause: { duration: 30s }
       - analysis:
           templates:
             - templateName: canary-isd-analysis
@@ -23,7 +23,7 @@ spec:
                 podTemplateHashValue: Latest
             - name: baseline-hash
               valueFrom:
-                podTemplateHashValue: Stable      
+                podTemplateHashValue: Stable 
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: canary-demo
-        image: argoproj/rollouts-demo:yellow
+        image: argoproj/rollouts-demo:blue
         ports:
         - name: http
           containerPort: 8080
