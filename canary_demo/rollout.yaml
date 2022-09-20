@@ -27,7 +27,7 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: rollouts-demo
+      app: canary-demo
   template:
     metadata:
       annotations:
