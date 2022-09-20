@@ -20,7 +20,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - logTemplateName: Log-Elk
+          - logTemplateName: Log-Elkk
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
