@@ -5,9 +5,8 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: http
+    targetPort: 8088
     protocol: TCP
-    name: http
   selector:
     app: canary-demo
 
@@ -19,8 +18,7 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: http
+    targetPort: 8088
     protocol: TCP
-    name: http
   selector:
     app: canary-demo
