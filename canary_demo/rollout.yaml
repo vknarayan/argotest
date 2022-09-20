@@ -33,7 +33,7 @@ spec:
       annotations:
         prometheus.io/scrape: 'true'
         prometheus_io_path: '/mgmt/prometheus'
-        prometheus_io_port: '8080'
+        prometheus_io_port: '8088'
       labels:
         app: canary-demo
     spec:
@@ -42,7 +42,7 @@ spec:
         image: docker.io/opsmxdev/issuegen:v3.0.1
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: 8088
           protocol: TCP
         resources:
           requests:
