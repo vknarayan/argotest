@@ -60,3 +60,22 @@ spec:
                 specRef: stable
               - name: canary
                 specRef: canary
+        - setWeight: 75
+        - pause: { duration: 5s }
+        - experiment:
+            analyses:
+              - name : isd-analysis
+                requiredForCompletion: true
+                templateName: isd-analysis
+                args:
+                  - name: baseline-hash
+                    valueFrom:
+                      podTemplateHashValue: Stable
+                  - name: canary-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
