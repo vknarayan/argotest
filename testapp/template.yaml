@@ -20,7 +20,8 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - metricTemplateName: PrometheusMetricTemplate
-            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen"
-            canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen"
+          - serviceName: demoserviceforisd
+            metricScopeVariables: "resource.labels.container_name"
+            baselineMetricScope: "oes-platform-br"
+            canaryMetricScope: "oes-platform-br"
+            metricTemplateName: newrelictemplate
