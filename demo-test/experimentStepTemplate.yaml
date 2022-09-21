@@ -41,8 +41,15 @@ spec:
               - name : demo-isd-analysis
                 requiredForCompletion: true
                 templateName: demo-isd-analysis
+                args:
+                  - name: baseline-hash
+                    valueFrom:
+                      podTemplateHashValue: Stable
+                  - name: canary-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
             templates:
-              - name: baseline-hash
+              - name: baseline
                 specRef: stable
-              - name: canary-hash
+              - name: canary
                 specRef: canary
