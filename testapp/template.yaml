@@ -15,17 +15,14 @@ spec:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: issuegenapp-canary
           user: admin
-          lifetimeHours: "0.05"
+          baselineStartTime:"2022-09-16T06:10:00Z"
+          canaryStartTime: "2022-09-19T08:06:00Z"
+          lifetimeHours: "0.08"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - logTemplateName: logverification
-            logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"
-            metricTemplateName: PrometheusMetricTemplate
-            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "metricdriver,{{args.baseline-hash}},demoapp-issuegen"
-            canaryMetricScope: "metricdriver,{{args.canary-hash}},demoapp-issuegen"
-            serviceName: "junaid"
+          - logTemplateName: stackdriverlog
+            logScopeVariables: "resource.labels.container_name"
+            baselineLogScope: issuegen-prod
+            canaryLogScope: issuegen-prod
