@@ -20,8 +20,11 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: demoserviceforisd
-            metricScopeVariables: "resource.labels.container_name"
-            baselineMetricScope: "oes-platform-br"
-            canaryMetricScope: "oes-platform-br"
-            metricTemplateName: newrelictemplate
+          - logTemplateName: logverification
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
+            metricTemplateName: PrometheusMetricTemplate
+            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen"
+            canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen"
