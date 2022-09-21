@@ -20,10 +20,10 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - logTemplateName: stackdriverlog
-            logScopeVariables: "resource.labels.container_name"
-            baselineLogScope: issuegen-prod
-            canaryLogScope: issuegen-prod
+          - logTemplateName: logverification
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
             metricTemplateName: PrometheusMetricTemplate
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen"
