@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: demo-stepexp-isd
+spec:
+  replicas: 4
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: demo-stepexp-isd
+  template:
+    metadata:   
+      labels:
+        app: demo-stepexp-isd
+    spec:
+      containers:
+        - name: rollouts-demo-exp
+          image: docker.io/opsmxdev/issuegen:v3.0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
+  strategy:
+    canary:
+      steps:
+        - setWeight: 25
+        - pause: { duration: 5s }
+        - experiment:
+            analyses:
+              - name : demo-isd-analysis
+                requiredForCompletion: true
+                templateName: demo-isd-analysis
+            templates:
+              - name: baseline-hash
+                specRef: stable
+              - name: canary-hash
+                specRef: canary
+        - setWeight: 50
+        - pause: { duration: 5s }
+        - experiment:
+            analyses:
+              - name : demo-isd-analysis
+                requiredForCompletion: true
+                templateName: demo-isd-analysis
+            templates:
+              - name: baseline-hash
+                specRef: stable
+              - name: canary-hash
+                specRef: canary
