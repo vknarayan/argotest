@@ -26,5 +26,5 @@ spec:
             canaryLogScope: ".*{{args.canary-hash}}.*"
             metricTemplateName: prometheusverificationv41
             metricScopeVariables: "${namespace_key},${pod_key}"
-            baselineMetricScope: "metricdriver,{{args.baseline-hash}}"
-            canaryMetricScope: "metricdriver,{{args.canary-hash}}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}}"
+            canaryMetricScope: "argocd,{{args.canary-hash}}"
