@@ -21,7 +21,7 @@ spec:
             marginal: 60
           services:
           - serviceName: service1
-            gateName: gate1
             metricScopeVariables: "${host_key}"
             baselineMetricScope: "nr-isd-rollout-{{args.baseline-hash}}-.*" 
             canaryMetricScope: "nr-isd-rollout-{{args.canary-hash}}-.*"
+            metricTemplateName: newrelict1
