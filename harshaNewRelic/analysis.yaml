@@ -23,6 +23,7 @@ spec:
             marginal: 60
           services:
           - metricTemplateName: testtemplatefornr
+            metricTemplateVersion: "v2.0"
             metricScopeVariables: "resource.labels.container_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-br"
