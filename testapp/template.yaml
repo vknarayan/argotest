@@ -12,10 +12,10 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://argoisdqa.isd-dev.opsmx.net/
-          application: sep22application
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          application: issuegenapp-canary
           user: admin
-          lifetimeHours: "0.1"
+          lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
