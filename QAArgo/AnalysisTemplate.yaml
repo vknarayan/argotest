@@ -20,12 +20,8 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: QaSvc
-            metricTemplateName: qametrictemp
+          - metricTemplateName: qametrictemp
             metricScopeVariables: "resource.labels.container_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-br
-            logTemplateName: qalogtemp
-            logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"
+            
