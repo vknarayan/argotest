@@ -24,3 +24,7 @@ spec:
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
+            metricTemplateName: nranalysisv4
+            metricScopeVariables: "app_key,pod_key"
+            baselineMetricScope: "demo-test,{{args.baseline-hash}}"
+            canaryMetricScope: "demo-test,{{args.canary-hash}}"
