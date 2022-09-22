@@ -17,7 +17,7 @@ spec:
           canaryStartTime: "2022-04-21T15:52:00Z"
           application: demonewrelic
           user: admin
-          lifetimeHours: "0.05"
+          lifetimeHours: "0.2"
           threshold:
             pass: 80
             marginal: 60
