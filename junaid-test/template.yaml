@@ -7,16 +7,20 @@ spec:
     - name: testapp
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          gateUrl: https://argoisdqa.isd-dev.opsmx.net/
           user: admin
-          application: junaid-test
+          application: qa-canary-analysis
           baselineStartTime: "2022-08-20T13:15:00Z"
-          lifetimeHours: "0.05"
+          lifetimeHours: "0.1"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - metricScopeVariables: "job_name"
-            baselineMetricScope: "oes-platform-br"
-            canaryMetricScope: "oes-platform-cr"
-            metricTemplateName: PrometheusMetricTemplate
+          - logTemplateName: RegularIsdTemp2
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
+            metricTemplateName: CUSTOMDatadog
+            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen"
+            canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen"
