@@ -13,6 +13,8 @@ spec:
       provider:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          baselineStartTime: "2022-04-21T15:52:00Z"
+          canaryStartTime: "2022-04-21T15:52:00Z"
           application: demonewrelic
           user: admin
           lifetimeHours: "0.05"
