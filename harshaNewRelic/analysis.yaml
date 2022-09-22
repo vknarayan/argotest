@@ -26,4 +26,3 @@ spec:
             metricScopeVariables: "resource.labels.container_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-br"
-            metricTemplateVersion: "v9.0"
