@@ -13,16 +13,14 @@ spec:
       provider:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          baselineStartTime: "2022-09-19T14:00:00Z"
-          canaryStartTime: "2022-09-19T14:00:00Z"
+          lifetimeHours: "0.05"
           application: isd-for-nr-canary
           user: admin
-          lifetimeHours: "0.1"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - metricTemplateName: testtemplatefornr2
-            metricScopeVariables: "resource.labels.container_name"
-            baselineMetricScope: "oes-platform-br"
-            canaryMetricScope: "oes-platform-br"
+          - metricTemplateName: nranalysis
+            metricScopeVariables: "app_key,pod_key"
+            baselineMetricScope: "issugen-baseline,{{args.baseline_hash}}"
+            canaryMetricScope: "issugen-baseline,{{args.canary-hash}}"
