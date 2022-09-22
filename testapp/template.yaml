@@ -12,19 +12,19 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          application: issuegenapp-canary
+          gateUrl: https://argoisdqa.isd-dev.opsmx.net/
+          application: sep22application
           user: admin
           lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - logTemplateName: logverification
+          - logTemplateName: ArgoLogTemplate
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
-            metricTemplateName: PrometheusMetricTemplate
+            metricTemplateName: CUSTOMPrometheus
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen"
             canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen"
