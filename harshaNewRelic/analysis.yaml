@@ -22,7 +22,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - metricTemplateName: testtemplatefornr2
+          - metricTemplateName: testcustomrenewrelic1
             metricScopeVariables: "resource.labels.container_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-br"
