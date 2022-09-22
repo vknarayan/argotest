@@ -15,7 +15,7 @@ spec:
           gateUrl: https://argoisdqa.isd-dev.opsmx.net/
           application: sep22application
           user: admin
-          lifetimeHours: "0.05"
+          lifetimeHours: "0.1"
           threshold:
             pass: 80
             marginal: 60
