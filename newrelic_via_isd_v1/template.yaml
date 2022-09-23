@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          lifetimeHours: "0.05"
+          lifetimeHours: "0.5"
           application: isd-for-nr-canary
           user: admin
           threshold:
