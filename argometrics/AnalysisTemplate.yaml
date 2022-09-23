@@ -21,7 +21,7 @@ spec:
             marginal: 60
           services:
           - serviceName: metricsvcbyqa
-            metricTemplateName: qametrictemp
+            metricTemplateName: CUSTOMPrometheus
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,issuegenapp-canary"
             canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,issuegenapp-canary"
