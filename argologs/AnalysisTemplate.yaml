@@ -20,11 +20,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - metricTemplateName: CUSTOMDatadog
-            metricScopeVariables: "variable1"
-            baselineMetricScope: "service:baseapp"
-            canaryMetricScope: "service:canaryapp"
-            logTemplateName: RegularIsdTemp2
+          - logTemplateName: RegularIsdTemp2
             logScopeVariables: "kubernetes.container_name"
             baselineLogScope: "baseapp-rest-1"
             canaryLogScope: "canaryapp-rest-1
