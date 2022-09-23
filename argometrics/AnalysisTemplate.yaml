@@ -22,7 +22,7 @@ spec:
           services:
           - serviceName: metricsvcbyqa
             metricTemplateName: qametrictemp
-            metricScopeVariables: "resource.labels.container_name"
-            baselineMetricScope: "oes-platform-br"
-            canaryMetricScope: "oes-platform-br
+            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,issuegenapp-canary"
+            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,issuegenapp-canary"
             
