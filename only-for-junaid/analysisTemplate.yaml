@@ -26,5 +26,5 @@ spec:
             canaryLogScope: ".*{{args.canary-hash}}.*"
             metricTemplateName: PrometheusMetricTemplate
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "metricdriver,{{args.baseline-hash}},demoapp-issuegen"
-            canaryMetricScope: "metricdriver,{{args.canary-hash}},demoapp-issuegen"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
+            canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
