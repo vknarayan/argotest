@@ -19,6 +19,7 @@ spec:
           threshold:
             pass: 80
             marginal: 60
+          globalMetricTemplate: prometheusverificationv41
           services:
           - logTemplateName: logtemp
             logScopeVariables: "kubernetes.pod_name"
@@ -28,8 +29,6 @@ spec:
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
             canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
-          - metricTemplateName: prometheusverificationv41
-            metricTemplateVersion: "v4.0"
-            metricScopeVariables: "${namespace_key},${pod_key}"
+          - metricScopeVariables: "${namespace_key},${pod_key}"
             baselineMetricScope: "argocd,{{args.baseline-hash}}"
             canaryMetricScope: "argocd,{{args.canary-hash}}"
