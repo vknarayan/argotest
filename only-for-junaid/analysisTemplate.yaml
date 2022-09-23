@@ -28,3 +28,7 @@ spec:
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
             canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
+          - metricTemplateName: prometheusverificationv41
+            metricScopeVariables: "${namespace_key},${pod_key}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}}"
+            canaryMetricScope: "argocd,{{args.canary-hash}}"
