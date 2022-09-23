@@ -13,19 +13,16 @@ spec:
       provider:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          application: mynewargoapp
+          application: metricanalysisapp
           user: admin
-          lifetimeHours: "0.05"
+          lifetimeHours: "0.1"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - serviceName: QaSvc
+          - serviceName:
             metricTemplateName: qametrictemp
             metricScopeVariables: "resource.labels.container_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-br
-            logTemplateName: qalogtemp
-            logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"
+            
