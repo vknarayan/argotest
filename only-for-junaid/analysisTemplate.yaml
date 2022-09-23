@@ -32,3 +32,4 @@ spec:
           - metricScopeVariables: "${namespace_key},${pod_key}"
             baselineMetricScope: "argocd,{{args.baseline-hash}}"
             canaryMetricScope: "argocd,{{args.canary-hash}}"
+            metricTemplateVersion: "4.0v"
