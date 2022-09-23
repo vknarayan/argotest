@@ -20,12 +20,11 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: QaSvc
-            metricTemplateName: qametrictemp
-            metricScopeVariables: "resource.labels.container_name"
-            baselineMetricScope: "oes-platform-br"
-            canaryMetricScope: "oes-platform-br
-            logTemplateName: qalogtemp
-            logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"
+          - metricTemplateName: CUSTOMDatadog
+            metricScopeVariables: "variable1"
+            baselineMetricScope: "service:baseapp"
+            canaryMetricScope: "service:canaryapp"
+            logTemplateName: RegularIsdTemp2
+            logScopeVariables: "kubernetes.container_name"
+            baselineLogScope: "baseapp-rest-1"
+            canaryLogScope: "canaryapp-rest-1
