@@ -22,7 +22,7 @@ spec:
           services:
           - serviceName: metricsvcbyqa
             metricTemplateName: CUSTOMPrometheus
-            metricScopeVariables: "${namespace_key},${pod_key}"
-            baselineMetricScope: ".*{{args.baseline-hash}}.*"
-            canaryMetricScope: ".*{{args.canary-hash}}.*"
+            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,issuegenapp-canary"
+            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,issuegenapp-canary"
             
