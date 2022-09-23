@@ -12,7 +12,7 @@ spec:
       initialDelay: 30s
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          gateUrl: https://argocd-isdargo.isd-dev.opsmx.net//
           application: loganalysisapplication
           user: admin
           lifetimeHours: "0.05"
