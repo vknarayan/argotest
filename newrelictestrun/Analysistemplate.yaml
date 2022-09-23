@@ -20,7 +20,15 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - metricTemplateName: newrelictemplate
+          - serviceName: "svc1"
+            gateName: "gate1"
+            metricTemplateName: newrelictemplate
+            metricScopeVariables: "resource.labels.container_name"
+            baselineMetricScope: "oes-platform-br"
+            canaryMetricScope: "oes-platform-br"
+          - serviceName: "svc2"
+            gateName: "gate1"
+            metricTemplateName: newrelictemplate
             metricScopeVariables: "resource.labels.container_name"
             baselineMetricScope: "oes-platform-br"
             canaryMetricScope: "oes-platform-br"
