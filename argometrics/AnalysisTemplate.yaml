@@ -20,7 +20,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName:
+          - serviceName: metricsvcbyqa
             metricTemplateName: qametrictemp
             metricScopeVariables: "resource.labels.container_name"
             baselineMetricScope: "oes-platform-br"
