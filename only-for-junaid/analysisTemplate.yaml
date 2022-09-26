@@ -20,15 +20,15 @@ spec:
             pass: 80
             marginal: 60
           globalMetricTemplate: PrometheusMetricTemplate
-          globalLogTemplate: qalogtemp
+          globalLogTemplate: logtemp
           services:
-          - logTemplateName: logtemp
-            logScopeVariables: "kubernetes.pod_name"
+          - logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
             canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
-          - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,{{args.baseline-hash}},issuegenapp-canary"
-            canaryMetricScope: "argocd,{{args.canary-hash}},issuegenapp-canary"
+          - metricScopeVariables: "job_name"
+            baselineMetricScope: "oes-datascience-br"
+            canaryMetricScope: "oes-datascience-cr"
+            metricTemplateName: "prom-metric"
