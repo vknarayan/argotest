@@ -12,7 +12,7 @@ spec:
       initialDelay: 30s
       provider:
         opsmx:
-          gateUrl: https://argoisdqa.isd-dev.opsmx.net//
+          gateUrl: https://argoisdqa.isd-dev.opsmx.net/
           application: metricanalysisapp
           user: admin
           lifetimeHours: "0.1"
