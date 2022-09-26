@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          lifetimeHours: "0.5"
+          lifetimeHours: "0.2"
           application: isd-for-nr-canary
           user: admin
           threshold:
@@ -24,7 +24,3 @@ spec:
             metricScopeVariables: "app_key,pod_key"
             baselineMetricScope: "issugen-baseline,{{args.baseline-hash}}"
             canaryMetricScope: "issugen-baseline,{{args.canary-hash}}"
-          - metricTemplateName: newrreliccustomqueries2
-            metricScopeVariables: "app_key,pod_key"
-            baselineMetricScope: "issugen-baseline,{{args.baseline-hash}}"
-            canaryMetricScope: "issugen-baseline,{{args.canary-hash}}"  
