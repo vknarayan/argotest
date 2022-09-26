@@ -19,26 +19,16 @@ spec:
           threshold:
             pass: 80
             marginal: 60
-          globalMetricTemplate: prometheusverificationv41
+          globalMetricTemplate: PrometheusMetricTemplate
           globalLogTemplate: qalogtemp
           services:
           - logTemplateName: logtemp
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
-            metricTemplateName: PrometheusMetricTemplate
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
             canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
-          - metricScopeVariables: "${namespace_key},${pod_key}"
-            baselineMetricScope: "argocd,{{args.baseline-hash}}"
-            canaryMetricScope: "argocd,{{args.canary-hash}}"
-          - logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: "rollout-canary-log.*"
-            canaryLogScope: "rollout-canary-log.*"
-          - logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: "guestbook_baseline"
-            canaryLogScope: "gurestbook_newrelease"
-            metricScopeVariables: "${namespace_key},${pod_key}"
-            baselineMetricScope: "argocd,{{args.baseline-hash}}"
-            canaryMetricScope: "argocd,{{args.canary-hash}}"
+          - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},issuegenapp-canary"
+            canaryMetricScope: "argocd,{{args.canary-hash}},issuegenapp-canary"
