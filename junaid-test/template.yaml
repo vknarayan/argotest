@@ -7,20 +7,20 @@ spec:
     - name: testapp
       provider:
         opsmx:
-          gateUrl: https://argoisdqa.isd-dev.opsmx.net/
+          gateUrl: https://argoqa.isd-dev.opsmx.net/
           user: admin
-          application: qa-canary-analysis
+          application: testapp17742
           baselineStartTime: "2022-08-20T13:15:00Z"
           lifetimeHours: "0.1"
-          threshold:
+          threshold:testapp17742
             pass: 80
             marginal: 60
           services:
-          - logTemplateName: RegularIsdTemp2
-            logScopeVariables: "kubernetes.pod_name"
+          - logTemplateName: testLogTemplateName65707
+            logScopeVariables: "kubernetes.container_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
-            metricTemplateName: CUSTOMPrometheus
+            metricTemplateName: testmetrictemplate17742
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen"
             canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen"
