@@ -15,7 +15,7 @@ spec:
           gateUrl: https://argoisdqa.isd-dev.opsmx.net/
           baselineStartTime: "2021-09-03T16:59:46Z"
           canaryStartTime: "2021-09-03T16:59:46Z"
-          application: qateamapplication
+          application:  logandmetricappbyqa
           user: admin
           lifetimeHours: "0.1"
           threshold:
