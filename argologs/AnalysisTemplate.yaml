@@ -22,5 +22,5 @@ spec:
           services:
           - logTemplateName: RegularIsdTemp2
             logScopeVariables: "kubernetes.container_name"
-            baselineLogScope: ".baseapp-rest-1"
+            baselineLogScope: "baseapp-rest-1"
             canaryLogScope: "canaryapp-rest-1"
