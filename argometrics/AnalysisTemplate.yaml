@@ -21,8 +21,8 @@ spec:
             marginal: 60
           services:
           - serviceName: metricsvcbyqa
-            metricTemplateName: CUSTOMPrometheus
-            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*,issuegenapp-canary"
-            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*,issuegenapp-canary"
+            metricTemplateName: CUSTOMDatadog
+            metricScopeVariables: "variable1"
+            baselineMetricScope: "service:baseapp"
+            canaryMetricScope: "service:canaryapp"
             
