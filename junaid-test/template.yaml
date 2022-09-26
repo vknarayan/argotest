@@ -9,10 +9,10 @@ spec:
         opsmx:
           gateUrl: https://argoqa.isd-dev.opsmx.net/
           user: admin
-          application: testapp17742
+          application: testapplication17742
           baselineStartTime: "2022-08-20T13:15:00Z"
           lifetimeHours: "0.1"
-          threshold:testapp17742
+          threshold: 
             pass: 80
             marginal: 60
           services:
